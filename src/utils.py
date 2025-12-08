@@ -3,9 +3,14 @@ import math
 import itertools
 from glob import glob
 import time
-import openai
+import requests
+import os
 
 PROMPT_TEMPLATE = "<s>[INST] <<SYS>>\n{system_prompt}\n<</SYS>>\n\n{user_msg}[/INST]"
+
+# Ollama 配置
+OLLAMA_BASE_URL = os.environ.get("OLLAMA_BASE_URL", "http://localhost:11434")
+OLLAMA_MODEL = os.environ.get("OLLAMA_MODEL", "llama3.2")
 
 def get_prompt(source, query):
     system_prompt = """You are a helpful, respectful and honest assistant.
@@ -184,27 +189,37 @@ def impression_subjective_impression(sentences, query, n = 5, normalize = True, 
         cur_prompt = prompt.format(query = query, answer = sentences)
         while True:
             try:
-                _response = openai.Completion.create(
-                    model='gpt-3.5-turbo-instruct',
-                    prompt = cur_prompt,
-                    temperature=0.0,
-                    max_tokens=3,
-                    top_p=1,
-                    frequency_penalty=0,
-                    presence_penalty=0,
-                    stop=None,
-                    logprobs=5,
-                    n=1
+                # 使用 Ollama 进行评估
+                response = requests.post(
+                    f"{OLLAMA_BASE_URL}/api/generate",
+                    json={
+                        "model": OLLAMA_MODEL,
+                        "prompt": cur_prompt,
+                        "temperature": 0.0,
+                        "stream": False,
+                        "options": {
+                            "num_predict": 10,
+                            "top_p": 1.0
+                        }
+                    },
+                    timeout=60
                 )
-                # print(_response.usage)
-                # time.sleep(0.5)
-                logprobs = _response['choices'][0]['logprobs']['top_logprobs'][0]
-                total_sum = sum([((math.e)**v) for v in logprobs.values()])
-                avg_score = sum([convert_to_number(k) * ((math.e)**v)/total_sum for k,v in logprobs.items()])
+                response.raise_for_status()
+                result = response.json()
+                response_text = result['response'].strip()
+                
+                # 尝试从响应中提取数字评分
+                import re
+                score_match = re.search(r'[1-5](?:\.[0-9]+)?', response_text)
+                if score_match:
+                    avg_score = convert_to_number(score_match.group())
+                else:
+                    avg_score = 3.0  # 默认中间分数
+                
                 scores[os.path.split(prompt_file)[-1].split('.')[0]] = avg_score
                 break
             except Exception as e:
-                print('Error in GPT-Eval', e)
+                print('Error in Ollama-Eval', e)
                 time.sleep(10)
     avg_score = sum(scores.values())/len(scores.values())
     cache = json.load(open(cache_file))
@@ -230,8 +245,14 @@ def check_summaries_exist(sources, summaries):
 
 def get_answer(query, summaries = None, n = 5, num_completions = 1, cache_idx = 0, regenerate_answer = False, write_to_cache = True, loaded_cache = None):
     # print(CACHE_FILE, query)
-    if loaded_cache is None:    cache = json.load(open(CACHE_FILE))
-    else: cache = loaded_cache
+    # 如果缓存文件不存在，创建一个空的
+    if loaded_cache is None:
+        if not os.path.exists(CACHE_FILE):
+            with open(CACHE_FILE, 'w') as f:
+                json.dump({}, f)
+        cache = json.load(open(CACHE_FILE))
+    else: 
+        cache = loaded_cache
     if summaries is None:
         if cache.get(query) is None:
             search_results = search_handler(query, source_count = n)
@@ -244,7 +265,12 @@ def get_answer(query, summaries = None, n = 5, num_completions = 1, cache_idx = 
             search_results = cache[query][cache_idx]
 
         summaries = [x['summary'] for x in search_results['sources']]
-    cached_source = check_summaries_exist(cache[query], summaries)
+    
+    # 确保 cache[query] 存在
+    if cache.get(query) is None:
+        cache[query] = []
+    
+    cached_source = check_summaries_exist(cache[query], summaries) if cache.get(query) else None
     if not regenerate_answer and cached_source is not None:
         if len(cached_source['responses']) > 0:
             print('Cache Hit')

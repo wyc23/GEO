@@ -4,40 +4,52 @@ from urllib.parse import urlparse
 from readabilipy import simple_json_from_html_string
 import trafilatura
 import nltk
-import openai
 import os
 import pickle
 import uuid
 
-openai.api_key = os.environ["OPENAI_API_KEY"]
+# Ollama 配置
+OLLAMA_BASE_URL = os.environ.get("OLLAMA_BASE_URL", "http://localhost:11434")
+OLLAMA_MODEL = os.environ.get("OLLAMA_MODEL", "llama3.2")
 
 
 def clean_source_gpt35(source : str) -> str:
     for idx in range(8):
         try:
-            response = openai.ChatCompletion.create(
-                model="gpt-3.5-turbo",
-                messages=[
-                    {
-                    "role": "user",
-                    "content": f"Clean and refine the extracted text from a website. Remove any unwanted content such as headers, sidebars, and navigation menus. Retain only the main content of the page and ensure that the text is well-formatted and free of HTML tags, special characters, and any other irrelevant information. Refined text should contain the main intended readable text. Apply markdown formatting when outputting the answer.\n\nHere is the website:\n```html_text\n{source.strip()}```"
-                    },
-                ],
-                temperature=0,
-                max_tokens=1800,
-                top_p=1,
-                frequency_penalty=0,
-                presence_penalty=0
+            prompt = f"Clean and refine the extracted text from a website. Remove any unwanted content such as headers, sidebars, and navigation menus. Retain only the main content of the page and ensure that the text is well-formatted and free of HTML tags, special characters, and any other irrelevant information. Refined text should contain the main intended readable text. Apply markdown formatting when outputting the answer.\n\nHere is the website:\n```html_text\n{source.strip()}```"
+            
+            response = requests.post(
+                f"{OLLAMA_BASE_URL}/api/generate",
+                json={
+                    "model": OLLAMA_MODEL,
+                    "prompt": prompt,
+                    "temperature": 0.0,
+                    "stream": False,
+                    "options": {
+                        "num_predict": 1800,
+                        "top_p": 1.0
+                    }
+                },
+                timeout=120
             )
+            response.raise_for_status()
+            result = response.json()
             break
         except Exception as e:
-            print(f'Error while cleaning text with openai {e}')
+            print(f'Error while cleaning text with Ollama {e}')
             source = source[:-int(800*(1 + idx/2))]
+            import time
             time.sleep(3 + idx**2)
+    
     # Store the usage in the folder response_usages, with a random file name
-    pickle.dump(response.usage, open(f"response_usages/{uuid.uuid4()}.pkl", "wb"))
+    try:
+        os.makedirs("response_usages", exist_ok=True)
+        usage_info = {"model": OLLAMA_MODEL, "task": "clean_source"}
+        pickle.dump(usage_info, open(f"response_usages/{uuid.uuid4()}.pkl", "wb"))
+    except:
+        pass
 
-    tex = response.choices[0].message.content.strip()
+    tex = result['response'].strip()
     new_lines = [""]
     for line in tex.split('\n\n'):
         new_lines[-1] +=line+'\n'
