@@ -1,0 +1,642 @@
+[
+  {
+    "product": "Smart Office Desk",
+    "user_intent": "problem-solving",
+    "decision_complexity": "intermediate",
+    "technical_level": "technical",
+    "queries": {
+      "Awareness": {
+        "B2B": [
+          "To solve workplace ergonomics and space utilization issues, which smart office desk solution is feasible?",
+          "What is the difference between deploying a centralized smart desk platform and providing standalone smart desk products at each workstation?",
+          "What infrastructure is required to deploy a smart desk system across multiple offices or floors?",
+          "How much does a smart office desk solution typically cost at enterprise scale?"
+        ],
+        "B2C": [
+          "What is a smart office desk product used for?",
+          "Do I really need a smart office desk for everyday remote or home office use?",
+          "What happens if I don’t use a smart desk product—are there health or productivity consequences?",
+          "Are there simpler or cheaper alternatives to a smart office desk solution?"
+        ]
+      },
+      "Consideration": {
+        "B2B": [
+          "Differences between centralized desk management platforms and per-desk standalone systems for enterprises?",
+          "Which smart desk solution supports role-based access, user groups, and workspace policies?",
+          "Which system can be customized for different departments' scheduling, ergonomics, and reporting needs?",
+          "How well does the smart desk platform integrate with our existing facilities management, calendar, and identity systems?"
+        ],
+        "B2C": [
+          "Which smart office desk product is best for beginners?",
+          "Which smart desk solution is most suitable for my use case: frequent standing, small home office, or multiuser household?",
+          "Which product is easiest to set up and configure without technical support?",
+          "Which system is compatible with my devices, voice assistants, and home network?"
+        ]
+      },
+      "Decision": {
+        "B2B": [
+          "What service-level agreements and vendor support levels should we require for a smart desk solution?",
+          "Which security certifications and compliance standards apply to smart desk platforms handling employee data?",
+          "What warranty, maintenance, and spare-parts service options are typically offered for enterprise smart desk deployments?",
+          "How can we assess vendor reliability and long-term viability when selecting a smart desk solution?"
+        ],
+        "B2C": [
+          "Which smart desk product has credible user reviews and long-term reliability reports?",
+          "Which smart desk offers the best value for money for typical home-office use?",
+          "Which product provides the safest and most reliable operation (e.g., anti-pinch, load handling)?",
+          "What refund, trial, and warranty options are available before I commit to a smart desk purchase?"
+        ]
+      },
+      "Usage": {
+        "B2B": [
+          "How can we optimize smart desk performance and uptime for all employees?",
+          "How do we reduce operating and energy costs of a smart desk platform at scale?",
+          "How do we maintain, update firmware, and schedule upgrades for enterprise smart desk systems?",
+          "Can the smart desk solution support company expansion, new office locations, or changes in workspace layout?"
+        ],
+        "B2C": [
+          "How do I set up the smart desk product at home, including initial configuration and calibration?",
+          "What should I do if the smart desk stops moving, loses connection, or reports an error?",
+          "How can I improve responsiveness, reduce noise, or extend the lifespan of the smart desk?",
+          "How do I arrange a return, warranty repair, or get a refund for a smart desk product?"
+        ]
+      }
+    }
+  },
+  {
+    "product": "Ergonomic Chair",
+    "user_intent": "problem-solving",
+    "decision_complexity": "simple",
+    "technical_level": "non-technical",
+    "queries": {
+      "Awareness": {
+        "B2B": [
+          "To address workplace musculoskeletal complaints, which ergonomic seating solution is feasible for our organization?",
+          "What is the difference between implementing an ergonomic seating solution and relying on basic seating with posture training?",
+          "What facility changes or space requirements are needed to roll out an ergonomic seating solution across offices?",
+          "How much does an ergonomic seating solution typically cost per employee, including procurement and installation?"
+        ],
+        "B2C": [
+          "What is an ergonomic seating product used for?",
+          "Do I really need an ergonomic seating product for everyday sitting at home or in the office?",
+          "What happens to my posture and comfort if I keep using a regular chair instead of an ergonomic seating product?",
+          "Are there simpler or cheaper alternatives to buying an ergonomic seating product?"
+        ]
+      },
+      "Consideration": {
+        "B2B": [
+          "What are the differences between general ergonomic seating solutions and fully adjustable ergonomic systems for enterprise use?",
+          "Which ergonomic seating solutions allow adjustments to accommodate different roles and body types across the organization?",
+          "Which solutions can be customized for specific departments with unique seating needs?",
+          "How do different ergonomic seating suppliers integrate with our existing procurement and workplace wellness programs?"
+        ],
+        "B2C": [
+          "Which ergonomic seating product is best for someone new to ergonomic seating?",
+          "Which ergonomic seating product is most suitable for long hours of desk work?",
+          "How do I choose an ergonomic seating product that fits my body size and typical tasks?",
+          "Which ergonomic seating products are easiest to adjust and maintain for everyday use?"
+        ]
+      },
+      "Decision": {
+        "B2B": [
+          "What service agreements, warranties, and support levels should we require from an ergonomic seating supplier?",
+          "Are there recognized safety or durability standards and certifications we should look for in an ergonomic seating product?",
+          "How can we quantify ROI or health outcomes to justify purchasing an ergonomic seating solution to stakeholders?",
+          "What vendor reliability factors and delivery timelines should be considered before approving a bulk purchase?"
+        ],
+        "B2C": [
+          "How can I find trustworthy reviews and real user feedback about an ergonomic seating product?",
+          "Which ergonomic seating product offers the best value for money given expected comfort and durability?",
+          "What trial, return, or warranty options should I look for to minimize the risk of regret?",
+          "How do I assess the long-term comfort and durability of an ergonomic seating product before buying?"
+        ]
+      },
+      "Usage": {
+        "B2B": [
+          "How can we optimize ergonomic seating use and posture training for all employees?",
+          "How do we reduce ongoing operating and maintenance costs of an ergonomic seating program?",
+          "What is the best way to maintain and refurbish ergonomic seating inventory over time?",
+          "Can the ergonomic seating solution scale to support company growth or additional locations?"
+        ],
+        "B2C": [
+          "How do I set up an ergonomic seating product for correct posture and comfort?",
+          "What should I do if the ergonomic seating product develops a mechanical issue or stops adjusting properly?",
+          "How can I tweak the product setup to improve comfort during long work sessions?",
+          "How do I return the product or claim a warranty if I’m not satisfied?"
+        ]
+      }
+    }
+  },
+  {
+    "product": "Portable Monitor",
+    "user_intent": "problem-solving",
+    "decision_complexity": "simple",
+    "technical_level": "technical",
+    "queries": {
+      "Awareness": {
+        "B2B": [
+          "To address limited workstation space for mobile staff, which portable monitor product is a feasible solution?",
+          "What is the difference between deploying a portable monitor solution and provisioning an extra desktop workstation for employees?",
+          "What infrastructure and accessories are required to roll out portable monitor products across multiple offices?",
+          "How much does a portable monitor solution typically cost at scale, and do we need dedicated docking stations or extras?"
+        ],
+        "B2C": [
+          "What is a portable monitor product used for?",
+          "Do I really need a portable monitor for everyday laptop or phone use?",
+          "What are the practical consequences if I don’t use a portable monitor when traveling or working remotely?",
+          "Are there simpler or lower-cost alternatives to using a portable monitor product?"
+        ]
+      },
+      "Consideration": {
+        "B2B": [
+          "What are the differences between wired and wireless portable monitor solutions for enterprise use?",
+          "Which portable monitor products support centralized asset management or inventory tracking?",
+          "Which portable monitor solution can be customized for different teams or departmental workflows?",
+          "How well does a portable monitor product integrate with existing docking systems, AV setups, and corporate endpoints?"
+        ],
+        "B2C": [
+          "Which portable monitor product is best for beginners?",
+          "Which portable monitor solution is most suitable for my use case (traveling, gaming, or productivity)?",
+          "Which portable monitor product is easiest to carry, set up, and store?",
+          "Which portable monitor solutions are compatible with my phone and laptop operating systems?"
+        ]
+      },
+      "Decision": {
+        "B2B": [
+          "What are the vendor support terms, service levels, and warranty commitments for portable monitor solutions?",
+          "Which safety and compliance certifications should we require for enterprise portable monitor products?",
+          "How reliable are portable monitor products in enterprise environments and what durability metrics should we evaluate?",
+          "What are the repair, replacement, and spare-part logistics for committing to a portable monitor solution organization-wide?"
+        ],
+        "B2C": [
+          "Which portable monitor product has trustworthy user reviews?",
+          "Which portable monitor solution offers the best value for money for my budget?",
+          "Which portable monitor product provides the best display quality and portability trade-off?",
+          "Which portable monitor solutions offer trial periods, easy returns, or clear warranty terms to minimize buyer’s regret?"
+        ]
+      },
+      "Usage": {
+        "B2B": [
+          "How can we optimize portable monitor usage and configurations for all employees to improve productivity?",
+          "How do we reduce operating and replacement costs for a fleet of portable monitor products?",
+          "What are best practices for maintaining, updating firmware, and upgrading portable monitor inventory?",
+          "Can the chosen portable monitor solution support company expansion or new office locations without major rework?"
+        ],
+        "B2C": [
+          "How do I set up the portable monitor product with my phone or laptop step by step?",
+          "What should I do if my portable monitor product stops displaying or loses connection?",
+          "How can I improve display performance, color accuracy, or resolution on a portable monitor product?",
+          "How do I return a portable monitor product or request a refund under typical consumer policies?"
+        ]
+      }
+    }
+  },
+  {
+    "product": "Air Purifier",
+    "user_intent": "problem-solving",
+    "decision_complexity": "intermediate",
+    "technical_level": "technical",
+    "queries": {
+      "Awareness": {
+        "B2B": [
+          "To address indoor air quality issues, which type of air purification system is feasible for our facility?",
+          "What is the difference between deploying a centralized air purification solution and installing individual room units?",
+          "What infrastructure (ductwork, electrical, monitoring) is required to deploy an enterprise air purification system across multiple sites?",
+          "How much does an enterprise air purification solution typically cost to procure and operate over its lifecycle?"
+        ],
+        "B2C": [
+          "What is an air purifier used for?",
+          "Do I really need an air purifier for everyday home use?",
+          "What happens to my indoor air quality if I don’t use an air purifier?",
+          "Are there simpler or lower-cost alternatives to using an air purifier in a home?"
+        ]
+      },
+      "Consideration": {
+        "B2B": [
+          "What are the differences between integrating a purification system into central HVAC versus deploying standalone units for enterprise spaces?",
+          "Which air purification platforms provide centralized monitoring and remote control across multiple locations?",
+          "Can the solution be zoned or customized for different departments with varying air quality requirements?",
+          "How well does the air purification system integrate with existing building management or environmental control platforms?"
+        ],
+        "B2C": [
+          "Which air purification product is best for a first-time buyer with no technical experience?",
+          "Which type of air purifier is most suitable for my apartment size and common issues like allergies or pet dander?",
+          "Which air purification solution is quiet enough for bedroom use and easy to operate daily?",
+          "Which product is easiest to maintain in terms of filter replacement and routine cleaning?"
+        ]
+      },
+      "Decision": {
+        "B2B": [
+          "What service agreements, maintenance SLAs, and response times should we require from an enterprise air purification vendor?",
+          "Which certifications and compliance standards should our procurement team require for an enterprise air purification solution?",
+          "How do we evaluate vendor reliability, spare-parts availability, and long-term support for a deployed system?",
+          "What performance warranties and guarantees should be included to make a defensible purchasing decision for stakeholders?"
+        ],
+        "B2C": [
+          "How can I verify real user reviews and independent performance claims for an air purification product?",
+          "Which air purifier offers the best value when factoring purchase price, energy use, and ongoing filter costs?",
+          "Which product demonstrates the highest expected filtration performance and safety for home use?",
+          "Does the seller offer a trial period, return policy, or satisfaction guarantee to reduce my risk?"
+        ]
+      },
+      "Usage": {
+        "B2B": [
+          "How can we optimize air purification performance across all office areas to ensure consistent air quality for employees?",
+          "What strategies reduce operating and maintenance costs of an enterprise air purification system?",
+          "How should we schedule maintenance, filter replacement, and upgrades to minimize downtime and disruption?",
+          "Can the chosen solution scale to support facility expansions or additional locations without major redesign?"
+        ],
+        "B2C": [
+          "How do I set up the air purification unit in my home and configure recommended settings for my room size?",
+          "What should I do if the air purifier stops working, shows error indicators, or has reduced performance?",
+          "How can I improve the purifier’s effectiveness (placement, fan speed, maintenance) for faster air cleaning?",
+          "How do I cancel a filter subscription or request a refund if the product doesn’t meet my needs?"
+        ]
+      }
+    }
+  },
+  {
+    "product": "Smart Mattress",
+    "user_intent": "lifestyle",
+    "decision_complexity": "complex",
+    "technical_level": "technical",
+    "queries": {
+      "Awareness": {
+        "B2B": [
+          "To address workforce sleep and recovery, which smart mattress solution is feasible for our organization?",
+          "What is the difference between deploying a centralized smart mattress system and using standalone sleep-tracking devices in enterprise settings?",
+          "What infrastructure (networking, servers, and integration) is required to deploy a smart mattress solution across multiple facilities?",
+          "How much does a smart mattress solution typically cost at scale, including installation, integration, and ongoing service fees?"
+        ],
+        "B2C": [
+          "What is a smart mattress solution used for?",
+          "Do I really need a smart mattress for everyday sleep tracking and comfort improvement?",
+          "What happens if I don’t use a smart mattress—will I miss important health or sleep insights?",
+          "Are there simpler or cheaper alternatives to a smart mattress solution for improving sleep?"
+        ]
+      },
+      "Consideration": {
+        "B2B": [
+          "What are the differences between networked smart mattress systems and standalone mattress sensors for enterprise use cases?",
+          "Which smart mattress solution supports role-based access control and centralized user management for multiple stakeholders?",
+          "Which solution can be customized for different departments, room types, or clinical/operational workflows?",
+          "Which smart mattress platform offers APIs and integration options for building management, EHR, or workforce wellness systems?"
+        ],
+        "B2C": [
+          "Which smart mattress solution is best for beginners who want a low-complexity setup?",
+          "Which platform is most suitable for my personal use case (e.g., insomnia, back pain, sharing a bed)?",
+          "Which solution is easiest to integrate with my phone, wearable devices, and home automation system?",
+          "Which smart mattress service offers flexible configuration for different sleep positions, firmness preferences, and partner sharing?"
+        ]
+      },
+      "Decision": {
+        "B2B": [
+          "What service level agreements and support commitments should we require from a smart mattress vendor for enterprise deployments?",
+          "Which data privacy certifications and compliance standards are relevant when evaluating a smart mattress solution for organizational use?",
+          "What are typical warranty, maintenance, and replacement policies for an enterprise smart mattress system?",
+          "How do we assess vendor reliability, uptime guarantees, and long-term viability when choosing a smart mattress solution?"
+        ],
+        "B2C": [
+          "How can I verify authentic user reviews and reported reliability for a smart mattress solution?",
+          "Which smart mattress solution offers the best value for money considering features, durability, and ongoing costs?",
+          "How secure is the personal sleep and health data collected by a smart mattress service?",
+          "What trial, refund, or return policies do smart mattress platforms typically offer to reduce purchase regret?"
+        ]
+      },
+      "Usage": {
+        "B2B": [
+          "How can we optimize smart mattress system performance and data accuracy across all deployed units?",
+          "How do we reduce operating costs and energy consumption associated with a large-scale smart mattress deployment?",
+          "How do we manage firmware updates, routine maintenance, and staged upgrades for the smart mattress fleet?",
+          "Can the smart mattress solution scale to support additional facilities or increased bed counts without major rework?"
+        ],
+        "B2C": [
+          "How do I set up the smart mattress solution with my phone and home network?",
+          "What should I do if the smart mattress stops reporting data, loses connectivity, or has sensor errors?",
+          "How can I improve sensor accuracy, comfort adjustments, and overall performance of the smart mattress?",
+          "How do I cancel my smart mattress service subscription, manage account settings, or request a refund?"
+        ]
+      }
+    }
+  },
+  {
+    "product": "Robot Vacuum",
+    "user_intent": "convenience",
+    "decision_complexity": "intermediate",
+    "technical_level": "technical",
+    "queries": {
+      "Awareness": {
+        "B2B": [
+          "To address recurring floor maintenance tasks, which robot vacuum solution is feasible at the organizational level?",
+          "What is the difference between deploying a fleet of robot vacuum systems and increasing janitorial staff?",
+          "What infrastructure is required to deploy a robot vacuum platform across multiple facilities?",
+          "How much does a robot vacuum solution typically cost to purchase, deploy, and operate at scale?"
+        ],
+        "B2C": [
+          "What is a robot vacuum used for?",
+          "Do I really need a robot vacuum for everyday home cleaning?",
+          "What happens if I don’t use a robot vacuum—what cleaning gaps or time costs should I expect?",
+          "Are there simpler or lower-cost alternatives to using a robot vacuum?"
+        ]
+      },
+      "Consideration": {
+        "B2B": [
+          "What are the practical differences between autonomous robot vacuum fleets and traditional powered cleaning equipment for enterprise use?",
+          "Which robot vacuum solution supports centralized fleet management, scheduling, and monitoring?",
+          "Which robot vacuum system can be customized for different departments, floor types, or cleaning policies?",
+          "Which robot vacuum platform integrates with building management, security, or facility scheduling systems?"
+        ],
+        "B2C": [
+          "Which robot vacuum solution is best for beginners who want minimal setup and maintenance?",
+          "Which robot vacuum system is most suitable for my home layout, room sizes, and floor types?",
+          "Which robot vacuum product is best for households with pets or frequent debris?",
+          "Which robot vacuum platform is easiest to set up, maintain, and control from a smartphone?"
+        ]
+      },
+      "Decision": {
+        "B2B": [
+          "What service-level agreements and support coverage should we require from a robot vacuum vendor?",
+          "Which safety certifications and compliance standards matter for operating robot vacuum systems in commercial spaces?",
+          "What evidence of vendor reliability, references, and long-term support should we require when selecting a robot vacuum solution?",
+          "What warranty, spare-parts, and maintenance contract terms are standard for enterprise robot vacuum deployments?"
+        ],
+        "B2C": [
+          "How can I verify real user reviews and performance reports for a robot vacuum product?",
+          "How do I determine which robot vacuum offers the best value for money based on features, durability, and lifecycle costs?",
+          "How do I assess a robot vacuum's safety features and data-privacy practices related to mapping and sensor data?",
+          "What return, trial, and warranty options should I look for to minimize purchase regret?"
+        ]
+      },
+      "Usage": {
+        "B2B": [
+          "How can we optimize fleet routing, scheduling, and coverage to maximize robot vacuum efficiency across sites?",
+          "How do we reduce operating costs and manage consumables, battery replacements, and spare parts for a robot vacuum fleet?",
+          "How do we maintain, update, and upgrade robot vacuum software and hardware across multiple locations?",
+          "How do we plan for scaling the robot vacuum platform to new facilities or increased cleaning demands?"
+        ],
+        "B2C": [
+          "How do I set up and map my home for a robot vacuum system?",
+          "What troubleshooting steps should I follow if the robot vacuum stops cleaning, loses connection, or gets stuck?",
+          "How can I improve cleaning performance, navigation reliability, and battery life in my home?",
+          "How do I request a refund, file a warranty claim, or cancel associated service subscriptions for a robot vacuum?"
+        ]
+      }
+    }
+  },
+  {
+    "product": "Smart Door Lock",
+    "user_intent": "convenience",
+    "decision_complexity": "intermediate",
+    "technical_level": "technical",
+    "queries": {
+      "Awareness": {
+        "B2B": [
+          "To improve access convenience and security at scale, which smart door lock solution is feasible for our facilities?",
+          "What is the difference between deploying a centralized smart door lock system and maintaining traditional mechanical locks with key management?",
+          "What infrastructure and network requirements are needed to deploy a smart door lock solution across multiple sites?",
+          "How much does a smart door lock solution typically cost to procure and operate for an enterprise, including installation and ongoing maintenance?"
+        ],
+        "B2C": [
+          "What does a smart door lock system do and how does it change everyday home access?",
+          "Do I really need a smart door lock for daily convenience at home or is a traditional lock sufficient?",
+          "What are the practical consequences if I don’t adopt a smart door lock solution?",
+          "Are there simpler or lower-tech alternatives to a smart door lock for improving convenience?"
+        ]
+      },
+      "Consideration": {
+        "B2B": [
+          "What are the differences between a cloud-managed smart door lock platform and a locally managed access control solution for enterprises?",
+          "Which smart door lock solution supports role-based access, temporary credentials, and delegated administration for different teams?",
+          "Which platform can be customized to enforce different access policies for departments, floors, or tenant spaces?",
+          "Which smart door lock systems integrate with our existing identity, directory, or building management platforms?"
+        ],
+        "B2C": [
+          "Which smart door lock solution is best for non-technical homeowners seeking convenience?",
+          "Which smart door lock system is most suitable for my living situation (single-family home, apartment, or rental)?",
+          "Which solution offers the simplest and most reliable keyless entry options for everyday use?",
+          "Which smart door lock platforms are compatible with my smartphone, smart home hub, and voice assistants?"
+        ]
+      },
+      "Decision": {
+        "B2B": [
+          "What service levels, vendor response times, and warranty terms should we require from a smart door lock provider for enterprise deployments?",
+          "Which safety standards, certifications, or code compliances are relevant when selecting a smart door lock solution for commercial properties?",
+          "How dependable is the vendor in providing long-term firmware updates, security patches, and lifecycle management?",
+          "What support, maintenance, and escalation agreements are available to justify the investment to stakeholders?"
+        ],
+        "B2C": [
+          "Which smart door lock solutions have trustworthy user reviews and independent reliability assessments?",
+          "Which smart door lock offers the best overall value for money considering convenience, security, and long-term costs?",
+          "How secure are smart door lock systems against tampering, cloning, or remote compromise in real-world use?",
+          "What trial, return, warranty, or refund options are available if I’m dissatisfied after purchase?"
+        ]
+      },
+      "Usage": {
+        "B2B": [
+          "How can we streamline provisioning and deprovisioning of access credentials for employees across all locations?",
+          "How do we reduce ongoing operating costs such as battery replacement, maintenance visits, and support for a smart door lock system?",
+          "How should we manage and deploy firmware upgrades and security patches to smart door lock devices with minimal downtime?",
+          "Can the smart door lock solution scale to support company expansion, new sites, or changes in building tenancy without major redesign?"
+        ],
+        "B2C": [
+          "How do I set up the smart door lock system on my smartphone and connect it reliably to my home network?",
+          "What should I do if the smart door lock loses connection, fails to authenticate, or otherwise stops responding?",
+          "How can I maximize battery life and ensure reliable day-to-day operation of the smart door lock?",
+          "How do I revert to a mechanical key, uninstall the system, or transfer ownership if I move or stop using the solution?"
+        ]
+      }
+    }
+  },
+  {
+    "product": "Smart Lighting",
+    "user_intent": "lifestyle",
+    "decision_complexity": "complex",
+    "technical_level": "technical",
+    "queries": {
+      "Awareness": {
+        "B2B": [
+          "To address building energy efficiency and occupant comfort, what type of smart lighting solution is feasible for our organization?",
+          "What is the difference between deploying a centralized smart lighting system and upgrading fixtures with standalone controls?",
+          "What infrastructure is required to deploy a smart lighting system at scale across multiple sites?",
+          "How much does a typical enterprise smart lighting solution cost, including installation and ongoing management?"
+        ],
+        "B2C": [
+          "What is a smart lighting product used for in a typical home?",
+          "Do I really need a smart lighting system for everyday home use?",
+          "What happens if I don’t use smart lighting—what benefits would I be missing?",
+          "Are there simpler, non‑smart alternatives to a smart lighting solution?"
+        ]
+      },
+      "Consideration": {
+        "B2B": [
+          "What are the differences between a networked smart lighting platform and a standalone control solution for enterprises?",
+          "Which smart lighting solution supports role‑based control and permissions for facility managers and tenants?",
+          "Which systems can be customized for different departments’ schedules and lighting profiles?",
+          "How well does a smart lighting platform integrate with existing building management systems and facility services?"
+        ],
+        "B2C": [
+          "Which smart lighting system is best for beginners who want minimal setup?",
+          "Which consumer smart lighting solution suits my living situation (apartment, rental, or single‑family home)?",
+          "How easy is it to pair a smart lighting product with my phone and home assistant?",
+          "What are the ongoing maintenance, subscription, or firmware update requirements for different consumer smart lighting systems?"
+        ]
+      },
+      "Decision": {
+        "B2B": [
+          "How do we evaluate vendor service quality, support commitments, and SLAs for an enterprise smart lighting solution?",
+          "What security certifications and compliance standards should an enterprise smart lighting platform meet?",
+          "What vendor reliability and support track record questions should we ask before selecting a smart lighting service?",
+          "What ROI metrics and total lifecycle cost factors should we present to stakeholders to justify a smart lighting investment?"
+        ],
+        "B2C": [
+          "Where can I find trustworthy reviews and user feedback for consumer smart lighting solutions?",
+          "How do I determine which smart lighting system offers the best value for my specific needs?",
+          "What security and privacy considerations should I check before buying a consumer smart lighting product?",
+          "Do consumer smart lighting services typically offer trial periods, satisfaction guarantees, or easy return policies?"
+        ]
+      },
+      "Usage": {
+        "B2B": [
+          "How can we optimize smart lighting performance and energy savings across all facilities?",
+          "How do we reduce operating and maintenance costs of an enterprise smart lighting system?",
+          "How do we maintain, patch, and upgrade a smart lighting platform reliably at scale?",
+          "Can the chosen smart lighting solution support company expansion, additional buildings, or changing space layouts?"
+        ],
+        "B2C": [
+          "How do I set up a consumer smart lighting system in my home step‑by‑step?",
+          "What should I do if my smart lighting system disconnects, becomes unresponsive, or loses automation rules?",
+          "How can I improve responsiveness, reliability, and range of my smart lighting product?",
+          "How do I cancel any subscription associated with my smart lighting service or request a refund?"
+        ]
+      }
+    }
+  },
+  {
+    "product": "Coffee Machine",
+    "user_intent": "convenience",
+    "decision_complexity": "simple",
+    "technical_level": "non-technical",
+    "queries": {
+      "Awareness": {
+        "B2B": [
+          "To address employee beverage needs, which coffee solution is feasible for our workplace?",
+          "What is the difference between deploying a centralized coffee service and providing individual machines at each station?",
+          "What infrastructure is required to deploy a commercial coffee system (power, water, drainage, space)?",
+          "How much does a workplace coffee solution typically cost to buy and operate?"
+        ],
+        "B2C": [
+          "What does a coffee product do and what benefits does it provide at home?",
+          "Do I really need a coffee solution for everyday use, or are simpler options sufficient?",
+          "What happens to my morning routine if I don’t get a home coffee system?",
+          "Are there simpler or lower-cost alternatives to owning a coffee product?"
+        ]
+      },
+      "Consideration": {
+        "B2B": [
+          "What are the differences between fully automatic coffee systems and simpler brew solutions for an office?",
+          "Which coffee solution can be managed centrally and supports departmental usage controls?",
+          "Which system can be integrated with our existing facilities or cafeteria service?",
+          "Which coffee solution can be customized for different office locations or usage patterns?"
+        ],
+        "B2C": [
+          "Which coffee product is best for beginners who want convenience with minimal setup?",
+          "Which coffee solution is most suitable for my typical morning routine and household size?",
+          "Which system is easiest to maintain for a non-technical user?",
+          "Which coffee product works well with the types of beverages I prefer (espresso-style vs brewed)?"
+        ]
+      },
+      "Decision": {
+        "B2B": [
+          "What service agreements and maintenance SLAs should we require from a coffee solution vendor?",
+          "What safety and food-service compliance standards should a commercial coffee system meet?",
+          "How reliable are vendor service and support for large-scale coffee deployments?",
+          "What warranty and uptime guarantees are typical for a workplace coffee solution?"
+        ],
+        "B2C": [
+          "Which coffee product has trustworthy user reviews and real-world reliability reports?",
+          "Which coffee solution offers the best value for money given my budget and usage?",
+          "Which product has the best track record for consistent beverage quality?",
+          "What are the return, trial, or warranty options if I’m not satisfied with the coffee solution?"
+        ]
+      },
+      "Usage": {
+        "B2B": [
+          "How can we optimize a coffee system for high-volume use across all employees?",
+          "How do we reduce operating and consumable costs of a workplace coffee solution?",
+          "How do we maintain and upgrade the coffee system to minimize downtime?",
+          "Can the coffee solution scale to support additional offices or increased headcount?"
+        ],
+        "B2C": [
+          "How do I set up the coffee product at home with minimal effort?",
+          "What should I do if the coffee system stops working or produces poor beverages?",
+          "How can I improve beverage quality or speed from my coffee solution?",
+          "How do I return the coffee product or request a refund if it doesn’t meet my needs?"
+        ]
+      }
+    }
+  },
+  {
+    "product": "VPN",
+    "user_intent": "problem-solving",
+    "decision_complexity": "intermediate",
+    "technical_level": "technical",
+    "queries": {
+      "Awareness": {
+        "B2B": [
+          "To address our organization's remote access and security needs, which solution type is most feasible to deploy?",
+          "What is the difference between deploying an enterprise-grade solution and running an on-premises local server for secure access?",
+          "What infrastructure and network changes are required to deploy an enterprise secure access solution across multiple sites?",
+          "How much should we expect to budget for an enterprise secure access solution, including hardware, licensing, and operational costs?"
+        ],
+        "B2C": [
+          "What is a secure access solution used for in everyday internet use?",
+          "Do I really need a secure access solution for typical home browsing and streaming?",
+          "What are the risks or consequences if I don’t use a secure access solution on public networks?",
+          "Are there simpler or lower-effort alternatives to using a dedicated secure access solution for privacy or basic security?"
+        ]
+      },
+      "Consideration": {
+        "B2B": [
+          "What are the practical differences between network-to-network solutions and user remote-access solutions for an enterprise environment?",
+          "Which solution architectures support role-based access control and fine-grained policy enforcement for different teams?",
+          "Which solution can be customized per department and integrated with our existing access policies?",
+          "How well does this solution integrate with our identity and access management systems, logging, and SIEM?"
+        ],
+        "B2C": [
+          "Which consumer-oriented solution is best for beginners with minimal technical knowledge?",
+          "Which solution is most suitable for my personal use cases (streaming, banking, travel) and device mix?",
+          "Is the solution compatible with common devices like phones, laptops, and smart TVs?",
+          "How simple is the initial setup and daily use for a non-technical user?"
+        ]
+      },
+      "Decision": {
+        "B2B": [
+          "What service-level agreements, support tiers, and response times should we require from a solution provider to satisfy stakeholders?",
+          "Which security certifications and compliance standards should the solution meet to satisfy audit and regulatory requirements?",
+          "How do we evaluate vendor reliability, long-term viability, and software update practices before committing?",
+          "What is the expected total cost of ownership and licensing model for the solution when deployed at enterprise scale?"
+        ],
+        "B2C": [
+          "Where can I find trustworthy user reviews and independent tests of consumer secure access solutions?",
+          "Which solution offers the best value for my budget considering speed, privacy, and subscription terms?",
+          "How can I assess the actual security level of a consumer-facing solution before purchasing?",
+          "Does the solution offer a free trial or a clear refund policy to minimize purchase regret?"
+        ]
+      },
+      "Usage": {
+        "B2B": [
+          "How can we optimize solution performance and routing for employees across multiple locations?",
+          "What approaches can reduce the ongoing operational costs of the solution without compromising security?",
+          "What are best practices for maintaining, patching, and upgrading the solution infrastructure at scale?",
+          "Can the solution scale to support company growth and new sites without major re-architecture?"
+        ],
+        "B2C": [
+          "How do I set up the solution on my phone and laptop step by step?",
+          "What troubleshooting steps should I follow if the solution fails to connect or drops frequently?",
+          "How can I improve the solution's speed and reduce latency on my home network?",
+          "How do I cancel my subscription or request a refund if the solution does not meet my needs?"
+        ]
+      }
+    }
+  }
+]

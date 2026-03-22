@@ -1,0 +1,64 @@
+{
+  "products": [
+    {
+      "name": "Smart Office Desk",
+      "user_intent": "problem-solving",
+      "decision_complexity": "intermediate",
+      "technical_level": "technical"
+    },
+    {
+      "name": "Ergonomic Chair",
+      "user_intent": "problem-solving",
+      "decision_complexity": "simple",
+      "technical_level": "non-technical"
+    },
+    {
+      "name": "Portable Monitor",
+      "user_intent": "problem-solving",
+      "decision_complexity": "simple",
+      "technical_level": "technical"
+    },
+    {
+      "name": "Air Purifier",
+      "user_intent": "problem-solving",
+      "decision_complexity": "intermediate",
+      "technical_level": "technical"
+    },
+    {
+      "name": "Smart Mattress",
+      "user_intent": "lifestyle",
+      "decision_complexity": "complex",
+      "technical_level": "technical"
+    },
+    {
+      "name": "Robot Vacuum",
+      "user_intent": "convenience",
+      "decision_complexity": "intermediate",
+      "technical_level": "technical"
+    },
+    {
+      "name": "Smart Door Lock",
+      "user_intent": "convenience",
+      "decision_complexity": "intermediate",
+      "technical_level": "technical"
+    },
+    {
+      "name": "Smart Lighting",
+      "user_intent": "lifestyle",
+      "decision_complexity": "complex",
+      "technical_level": "technical"
+    },
+    {
+      "name": "Coffee Machine",
+      "user_intent": "convenience",
+      "decision_complexity": "simple",
+      "technical_level": "non-technical"
+    },
+    {
+      "name": "VPN",
+      "user_intent": "problem-solving",
+      "decision_complexity": "intermediate",
+      "technical_level": "technical"
+    }
+  ]
+}
