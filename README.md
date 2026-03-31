@@ -32,7 +32,19 @@
 2. conda activate geo
 3. pip install -r requirements.txt
 
+### Using Ollama (New Default)
 
+This project now uses Ollama for local LLM inference. See [OLLAMA_SETUP.md](OLLAMA_SETUP.md) for detailed setup instructions.
+
+**Quick Start:**
+1. Install Ollama: https://ollama.ai/
+2. Pull a model: `ollama pull llama3.2`
+3. Start Ollama: `ollama serve`
+4. (Optional) Set environment variables:
+   ```bash
+   export OLLAMA_MODEL="llama3.2"
+   export OLLAMA_BASE_URL="http://localhost:11434"
+   ```
 
 ## Run GEO
 
