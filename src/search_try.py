@@ -69,9 +69,8 @@ def clean_source_text(text: str) -> str:
     )
 
 import time
+import sys
 from pdb import set_trace as bp
-import openai
-import os
 
 
 def summarize_text_identity(source, query) -> str:
@@ -80,49 +79,96 @@ def summarize_text_identity(source, query) -> str:
 
 def search_handler(req, source_count = 8):
     query = req
+    print(f"[DEBUG] Starting search for: {query}", file=sys.stderr)
 
-    # GET LINKS
-    for _ in range(5):
-        try:
-            response = requests.get(f"https://www.google.com/search?q={query}")
-            break
-        except Exception as e:
-            print(f'Error while fetching from Google {e}')
-            time.sleep(5)
-            continue
-
-    html = response.text
-    soup = BeautifulSoup(html, 'html.parser')
-    link_tags = soup.find_all('a')
+    # GET LINKS - 使用 DuckDuckGo（对爬虫更友好）
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+    }
+    
     links = []
+    
+    # 尝试 DuckDuckGo
+    try:
+        print(f"[DEBUG] Trying DuckDuckGo search...", file=sys.stderr)
+        response = requests.get(
+            f"https://html.duckduckgo.com/html/?q={query}",
+            headers=headers,
+            timeout=10
+        )
+        
+        html = response.text
+        soup = BeautifulSoup(html, 'html.parser')
+        
+        # DuckDuckGo 的结果在 class="result__a" 的链接中
+        result_links = soup.find_all('a', class_='result__a')
+        print(f"[DEBUG] DuckDuckGo found {len(result_links)} results", file=sys.stderr)
+        
+        for link in result_links:
+            href = link.get('href')
+            if href:
+                # DuckDuckGo 使用重定向，提取实际 URL
+                if 'uddg=' in href:
+                    from urllib.parse import unquote
+                    actual_url = unquote(href.split('uddg=')[1].split('&')[0])
+                    if actual_url not in links and actual_url.startswith('http'):
+                        links.append(actual_url)
+                        print(f"[DEBUG] Found link: {actual_url}", file=sys.stderr)
+    except Exception as e:
+        print(f"[DEBUG] DuckDuckGo search failed: {e}", file=sys.stderr)
+    
+    # 如果 DuckDuckGo 失败，尝试 Google（可能会被阻止）
+    if len(links) == 0:
+        print(f"[DEBUG] Falling back to Google search...", file=sys.stderr)
+        try:
+            response = requests.get(f"https://www.google.com/search?q={query}", headers=headers, timeout=10)
+            html = response.text
+            soup = BeautifulSoup(html, 'html.parser')
+            link_tags = soup.find_all('a')
+            
+            print(f"[DEBUG] Google found {len(link_tags)} link tags", file=sys.stderr)
+            
+            for link in link_tags:
+                href = link.get('href')
+                if href:
+                    cleaned_href = None
+                    if href.startswith('/url?q='):
+                        cleaned_href = href.replace('/url?q=', '').split('&')[0]
+                    elif href.startswith('http://') or href.startswith('https://'):
+                        cleaned_href = href.split('&')[0]
+                    
+                    if cleaned_href and cleaned_href not in links and cleaned_href.startswith('http'):
+                        links.append(cleaned_href)
+                        print(f"[DEBUG] Found link: {cleaned_href}", file=sys.stderr)
+        except Exception as e:
+            print(f"[DEBUG] Google search failed: {e}", file=sys.stderr)
 
-    for link in link_tags:
-        href = link.get('href')
-
-        if href and href.startswith('/url?q='):
-            cleaned_href = href.replace('/url?q=', '').split('&')[0]
-
-            if cleaned_href not in links:
-                links.append(cleaned_href)
-                print(cleaned_href)
-
-    exclude_list = ["google", "facebook", "twitter", "instagram", "youtube", "tiktok","quora"]
+    print(f"[DEBUG] Total links collected: {len(links)}", file=sys.stderr)
+    
+    exclude_list = ["google", "facebook", "twitter", "instagram", "youtube", "tiktok","quora", "duckduckgo"]
     filtered_links = []
-    links = set(list(links))
+    
     for link in links:
         try:
-            if urlparse(link).hostname.split('.')[1] not in exclude_list:
-                filtered_links.append(link)
-        except: ...
-    filtered_links = [link for idx, link in enumerate(links) if urlparse(link).hostname.split('.')[1] not in exclude_list and links.index(link) == idx]
+            hostname = urlparse(link).hostname
+            if hostname:
+                parts = hostname.split('.')
+                if len(parts) >= 2:
+                    domain = parts[-2]  # 获取主域名
+                    if domain not in exclude_list:
+                        filtered_links.append(link)
+        except Exception as e:
+            print(f"[DEBUG] Error parsing {link}: {e}", file=sys.stderr)
+            continue
 
+    print(f"[DEBUG] Filtered links: {len(filtered_links)}", file=sys.stderr)
     final_links = filtered_links#[:source_count]
 
     # SCRAPE TEXT FROM LINKS
     sources = []
 
     for link in final_links:
-        print(f'Will be loading link {link}')
+        print(f'[DEBUG] Will be loading link {link}', file=sys.stderr)
         try:
             for _ in range(5):
                 downloaded = trafilatura.fetch_url(link)
@@ -130,14 +176,16 @@ def search_handler(req, source_count = 8):
                 if source_text is not None:
                     break
                 
-                print(f'Error fetching link {link}')
+                print(f'[DEBUG] Error fetching link {link}', file=sys.stderr)
                 time.sleep(4)
             if source_text is None:
+                print(f'[DEBUG] Skipping {link} - no text extracted', file=sys.stderr)
                 continue
             response = requests.get(link, timeout=15)
         except Exception as e:
+            print(f'[DEBUG] Exception loading {link}: {e}', file=sys.stderr)
             continue
-        print('Link Loaded')
+        print(f'[DEBUG] Link Loaded: {link}', file=sys.stderr)
         html = response.text
         try:
             html = simple_json_from_html_string(html)
@@ -159,14 +207,20 @@ def search_handler(req, source_count = 8):
 
         if source_text:
             source_text = clean_source_text(source_text)
-            print('Going to call openai')
+            print(f'[DEBUG] Going to call Ollama for cleaning...', file=sys.stderr)
             raw_source = source_text
-            source_text = clean_source_gpt35(source_text[:8000])
-            summary_text = summarize_text_identity(source_text, query)
-            sources.append({'url': link, 'text': f'Title: {html["title"]}\nSummary:' + summary_text, 'raw_source' : raw_source, 'source' : source_text, 'summary' : summary_text})
-            print('Openai Called')
+            try:
+                source_text = clean_source_gpt35(source_text[:8000])
+                summary_text = summarize_text_identity(source_text, query)
+                sources.append({'url': link, 'text': f'Title: {html["title"]}\nSummary:' + summary_text, 'raw_source' : raw_source, 'source' : source_text, 'summary' : summary_text})
+                print(f'[DEBUG] Successfully processed source {len(sources)}/{source_count}', file=sys.stderr)
+            except Exception as e:
+                print(f'[DEBUG] Error processing source: {e}', file=sys.stderr)
+                continue
         if len(sources) == source_count:
             break
+    
+    print(f"[DEBUG] Final sources count: {len(sources)}", file=sys.stderr)
     return {'sources': sources}
     
 if __name__ == '__main__':
