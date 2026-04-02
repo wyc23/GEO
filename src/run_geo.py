@@ -8,7 +8,7 @@ import time
 import os
 from datasets import load_dataset
 
-def identity(summary, source):
+def identity(summary):
 	return summary
 
 IMPRESSION_FNS = {
@@ -65,6 +65,10 @@ def improve(query : str, idx : int, sources : List[str] = None, summaries : List
 		sources = [x['source'] for x in answers['sources']]
 	if summaries is None:
 		summaries = [x['summary'] for x in answers['sources']]
+	if len(summaries) == 0:
+		raise ValueError(f"No summaries available for query: {query}")
+	if idx < 0 or idx >= len(summaries):
+		raise IndexError(f"Invalid sugg_idx={idx} for query with {len(summaries)} sources")
 
 	answers = answers['responses'][-1]
 

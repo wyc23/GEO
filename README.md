@@ -66,6 +66,46 @@ from datasets import load_dataset
 load_dataset('GEO-optim/geo-bench')
 ``` 
 
+### Build a GEO-bench-like dataset from your own queries
+
+Use `build_geo_bench_like_dataset.py` to generate GEO-bench-style JSONL:
+
+- Core fields: `query`, `tags`, `sources` (`raw_text`, `url`, `cleaned_text`), `sugg_idx`
+- Source pipeline: DuckDuckGo search + webpage extraction + Ollama cleaning
+
+Manual query mode:
+
+```bash
+python build_geo_bench_like_dataset.py \
+  --query "What is machine learning?" \
+  --out geo_bench_like.jsonl \
+  --sources-per-query 5
+```
+
+`product_query/product_queries.json` mode (B2B/B2C split):
+
+```bash
+python build_geo_bench_like_dataset.py \
+  --product-query-json product_query/product_queries.json \
+  --segment both \
+  --out-b2b geo_bench_like_b2b.jsonl \
+  --out-b2c geo_bench_like_b2c.jsonl \
+  --sources-per-query 5
+```
+
+Optional proxy:
+
+```bash
+export http_proxy=http://127.0.0.1:7897
+export https_proxy=http://127.0.0.1:7897
+```
+
+Notes:
+
+- `--segment` supports `B2B`, `B2C`, or `both`.
+- In product-query mode, each record also includes:
+  `segment`, `product`, `journey_stage`, `user_intent`, `decision_complexity`, `technical_level`.
+
 ## Leaderboard
 
 Leaderboard is available at: [https://huggingface.co/spaces/Pranjal2041/GEO-bench](leaderboard)

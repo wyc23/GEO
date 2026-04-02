@@ -263,8 +263,17 @@ def get_answer(query, summaries = None, n = 5, num_completions = 1, cache_idx = 
                 json.dump(cache, open(CACHE_FILE, 'w'), indent=2)
         else:
             search_results = cache[query][cache_idx]
+            cached_sources = search_results.get('sources', [])
+            if len(cached_sources) < n:
+                print(f"Cache Refresh: query has only {len(cached_sources)} sources, need {n}")
+                search_results = search_handler(query, source_count = n)
+                cache[query][cache_idx] = {'sources': search_results['sources'], 'responses': []}
+                if write_to_cache:
+                    json.dump(cache, open(CACHE_FILE, 'w'), indent=2)
 
         summaries = [x['summary'] for x in search_results['sources']]
+        if len(summaries) == 0:
+            raise ValueError(f"No sources found for query: {query}")
     
     # 确保 cache[query] 存在
     if cache.get(query) is None:

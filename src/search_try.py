@@ -77,6 +77,41 @@ def summarize_text_identity(source, query) -> str:
     return source[:8000]
 
 
+def extract_source_text(link: str, headers: dict):
+    """Fetch page html and extract main text with robust fallbacks."""
+    response = requests.get(link, headers=headers, timeout=20)
+    response.raise_for_status()
+    page_html = response.text
+
+    source_text = trafilatura.extract(page_html)
+    if source_text is None:
+        downloaded = trafilatura.fetch_url(link)
+        if downloaded:
+            source_text = trafilatura.extract(downloaded)
+
+    if source_text is None:
+        return None, None, None
+
+    title = None
+    html_text = None
+    try:
+        parsed = simple_json_from_html_string(page_html)
+        title = parsed.get('title')
+        html_text = parsed.get('content')
+    except Exception:
+        title = None
+        html_text = None
+
+    if not title:
+        try:
+            soup = BeautifulSoup(page_html, 'html.parser')
+            title = soup.title.string.strip() if soup.title and soup.title.string else link
+        except Exception:
+            title = link
+
+    return source_text, title, html_text
+
+
 def search_handler(req, source_count = 8):
     query = req
     print(f"[DEBUG] Starting search for: {query}", file=sys.stderr)
@@ -170,40 +205,17 @@ def search_handler(req, source_count = 8):
     for link in final_links:
         print(f'[DEBUG] Will be loading link {link}', file=sys.stderr)
         try:
-            for _ in range(5):
-                downloaded = trafilatura.fetch_url(link)
-                source_text = trafilatura.extract(downloaded)
-                if source_text is not None:
-                    break
-                
-                print(f'[DEBUG] Error fetching link {link}', file=sys.stderr)
-                time.sleep(4)
+            source_text, source_title, html_text = extract_source_text(link, headers)
             if source_text is None:
                 print(f'[DEBUG] Skipping {link} - no text extracted', file=sys.stderr)
                 continue
-            response = requests.get(link, timeout=15)
         except Exception as e:
             print(f'[DEBUG] Exception loading {link}: {e}', file=sys.stderr)
             continue
         print(f'[DEBUG] Link Loaded: {link}', file=sys.stderr)
-        html = response.text
-        try:
-            html = simple_json_from_html_string(html)
-            html_text = html['content']
-        except:
-            try:
-                from readabilipy.extractors import extract_title
-                {
-                    "title": extract_title(html),
-                    "content": str(html)
-                }
-            except:
-                continue
-        if len(html_text) < 400:
+        if html_text is not None and len(html_text) < 400:
+            print(f'[DEBUG] Skipping {link} - extracted html content too short', file=sys.stderr)
             continue
-        print(len(html_text))
-
-        soup = BeautifulSoup(html_text, 'html.parser')
 
         if source_text:
             source_text = clean_source_text(source_text)
@@ -212,7 +224,13 @@ def search_handler(req, source_count = 8):
             try:
                 source_text = clean_source_gpt35(source_text[:8000])
                 summary_text = summarize_text_identity(source_text, query)
-                sources.append({'url': link, 'text': f'Title: {html["title"]}\nSummary:' + summary_text, 'raw_source' : raw_source, 'source' : source_text, 'summary' : summary_text})
+                sources.append({
+                    'url': link,
+                    'text': f'Title: {source_title}\nSummary:' + summary_text,
+                    'raw_source': raw_source,
+                    'source': source_text,
+                    'summary': summary_text
+                })
                 print(f'[DEBUG] Successfully processed source {len(sources)}/{source_count}', file=sys.stderr)
             except Exception as e:
                 print(f'[DEBUG] Error processing source: {e}', file=sys.stderr)
