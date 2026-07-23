@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-from urllib.parse import urlparse
+from urllib.parse import urlparse, quote_plus, unquote
 from readabilipy import simple_json_from_html_string
 import trafilatura
 import nltk
@@ -10,7 +10,7 @@ import uuid
 
 # Ollama 配置
 OLLAMA_BASE_URL = os.environ.get("OLLAMA_BASE_URL", "http://localhost:11434")
-OLLAMA_MODEL = os.environ.get("OLLAMA_MODEL", "llama3.2")
+OLLAMA_MODEL = os.environ.get("OLLAMA_MODEL", "gpt-oss")
 
 
 def clean_source_gpt35(source : str) -> str:
@@ -72,9 +72,76 @@ import time
 import sys
 from pdb import set_trace as bp
 
+try:
+    from ddgs import DDGS
+except Exception:
+    DDGS = None
+
 
 def summarize_text_identity(source, query) -> str:
     return source[:8000]
+
+
+def fetch_search_html(url: str, headers: dict, retries: int = 3):
+    last_err = None
+    for i in range(retries):
+        try:
+            r = requests.get(url, headers=headers, timeout=12)
+            text = r.text or ""
+            # DuckDuckGo often returns 202/403 with html body; still parse it.
+            if len(text) > 200:
+                return text
+            r.raise_for_status()
+        except Exception as e:
+            last_err = e
+            time.sleep(1.2 * (i + 1))
+    if last_err:
+        raise last_err
+    raise RuntimeError(f"Failed to fetch search page: {url}")
+
+
+def collect_links_from_duckduckgo(soup: BeautifulSoup, links: list):
+    # html.duckduckgo.com format
+    for a in soup.find_all('a', class_='result__a'):
+        href = a.get('href')
+        if not href:
+            continue
+        if 'uddg=' in href:
+            actual = unquote(href.split('uddg=')[1].split('&')[0])
+            if actual.startswith('http') and actual not in links:
+                links.append(actual)
+        elif href.startswith('http') and href not in links:
+            links.append(href)
+
+    # lite.duckduckgo.com format
+    for a in soup.find_all('a'):
+        href = a.get('href')
+        if not href:
+            continue
+        if href.startswith('//'):
+            href = 'https:' + href
+        if 'duckduckgo.com/l/?' in href and 'uddg=' in href:
+            actual = unquote(href.split('uddg=')[1].split('&')[0])
+            if actual.startswith('http') and actual not in links:
+                links.append(actual)
+        elif href.startswith('http') and 'duckduckgo.com' not in href and href not in links:
+            links.append(href)
+
+
+def collect_links_from_ddgs(query: str, links: list, target_link_count: int):
+    if DDGS is None:
+        return
+    try:
+        with DDGS() as ddgs:
+            results = ddgs.text(query, max_results=max(20, target_link_count))
+            for item in results:
+                href = item.get('href') or item.get('url')
+                if href and href.startswith('http') and href not in links:
+                    links.append(href)
+                if len(links) >= target_link_count:
+                    break
+    except Exception as e:
+        print(f"[DEBUG] DDGS search failed: {e}", file=sys.stderr)
 
 
 def extract_source_text(link: str, headers: dict):
@@ -115,6 +182,7 @@ def extract_source_text(link: str, headers: dict):
 def search_handler(req, source_count = 8):
     query = req
     print(f"[DEBUG] Starting search for: {query}", file=sys.stderr)
+    target_link_count = max(source_count * 4, source_count + 12)
 
     # GET LINKS - 使用 DuckDuckGo（对爬虫更友好）
     headers = {
@@ -126,29 +194,25 @@ def search_handler(req, source_count = 8):
     # 尝试 DuckDuckGo
     try:
         print(f"[DEBUG] Trying DuckDuckGo search...", file=sys.stderr)
-        response = requests.get(
-            f"https://html.duckduckgo.com/html/?q={query}",
-            headers=headers,
-            timeout=10
-        )
-        
-        html = response.text
-        soup = BeautifulSoup(html, 'html.parser')
-        
-        # DuckDuckGo 的结果在 class="result__a" 的链接中
-        result_links = soup.find_all('a', class_='result__a')
-        print(f"[DEBUG] DuckDuckGo found {len(result_links)} results", file=sys.stderr)
-        
-        for link in result_links:
-            href = link.get('href')
-            if href:
-                # DuckDuckGo 使用重定向，提取实际 URL
-                if 'uddg=' in href:
-                    from urllib.parse import unquote
-                    actual_url = unquote(href.split('uddg=')[1].split('&')[0])
-                    if actual_url not in links and actual_url.startswith('http'):
-                        links.append(actual_url)
-                        print(f"[DEBUG] Found link: {actual_url}", file=sys.stderr)
+        before_ddgs = len(links)
+        collect_links_from_ddgs(query, links, target_link_count)
+        print(f"[DEBUG] DDGS added {len(links)-before_ddgs} links (total {len(links)})", file=sys.stderr)
+
+        encoded_q = quote_plus(query)
+        if len(links) < target_link_count:
+            ddg_urls = [f"https://lite.duckduckgo.com/lite/?q={encoded_q}&s={s}" for s in range(0, 180, 30)]
+            ddg_urls += [
+                f"https://duckduckgo.com/html/?q={encoded_q}",
+                f"https://html.duckduckgo.com/html/?q={encoded_q}",
+            ]
+            for ddg_url in ddg_urls:
+                html = fetch_search_html(ddg_url, headers=headers)
+                soup = BeautifulSoup(html, 'html.parser')
+                before = len(links)
+                collect_links_from_duckduckgo(soup, links)
+                print(f"[DEBUG] {ddg_url} added {len(links)-before} links (total {len(links)})", file=sys.stderr)
+                if len(links) >= target_link_count:
+                    break
     except Exception as e:
         print(f"[DEBUG] DuckDuckGo search failed: {e}", file=sys.stderr)
     
@@ -156,7 +220,7 @@ def search_handler(req, source_count = 8):
     if len(links) == 0:
         print(f"[DEBUG] Falling back to Google search...", file=sys.stderr)
         try:
-            response = requests.get(f"https://www.google.com/search?q={query}", headers=headers, timeout=10)
+            response = requests.get(f"https://www.google.com/search?q={quote_plus(query)}", headers=headers, timeout=10)
             html = response.text
             soup = BeautifulSoup(html, 'html.parser')
             link_tags = soup.find_all('a')

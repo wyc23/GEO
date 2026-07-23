@@ -1,5 +1,16 @@
 # GEO: Generative Engine Optimization
 
+## Current B2B vLLM Experiment
+
+The current reproducible experiment runs all GEO improve methods and the three
+non-subjective citation metrics on vendor-owned targets from the local B2B
+dataset.
+
+- Start with `HANDOFF.md` for the current project state.
+- Read `EXPERIMENT_RESULTS_GUIDE.md` for the result schema, experiment command,
+  code-to-result mapping, caveats, and inspection examples.
+- Run `python analyze_vllm_results.py --summary` to verify the committed result.
+
 <div class="badge-container">
     <a href="https://generative-engines.com/GEO/" class="badge">
         <img src="https://img.shields.io/website?down_message=down&style=for-the-badge&up_message=up&url=https%3A%2F%2Fgenerative-engines.com/" alt="Website">
@@ -38,11 +49,11 @@ This project now uses Ollama for local LLM inference. See [OLLAMA_SETUP.md](OLLA
 
 **Quick Start:**
 1. Install Ollama: https://ollama.ai/
-2. Pull a model: `ollama pull llama3.2`
+2. Pull a model: `ollama pull gpt-oss`
 3. Start Ollama: `ollama serve`
 4. (Optional) Set environment variables:
    ```bash
-   export OLLAMA_MODEL="llama3.2"
+   export OLLAMA_MODEL="gpt-oss"
    export OLLAMA_BASE_URL="http://localhost:11434"
    ```
 

@@ -5,3 +5,4 @@ readabilipy
 trafilatura
 datasets
 nltk
+ddgs

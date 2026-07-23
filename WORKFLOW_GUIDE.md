@@ -225,7 +225,7 @@ python run_geo.py
 ollama serve
 
 # 2. 下载模型
-ollama pull llama3.2
+ollama pull gpt-oss
 
 # 3. 安装依赖
 pip install -r requirements.txt
@@ -234,7 +234,7 @@ python -c "import nltk; nltk.download('punkt')"
 
 ### 可选环境变量:
 ```bash
-export OLLAMA_MODEL="llama3.2"        # 或 qwen2.5, mistral
+export OLLAMA_MODEL="gpt-oss"         # 或 qwen2.5, mistral
 export OLLAMA_BASE_URL="http://localhost:11434"
 export STATIC_CACHE="True"            # 启用缓存
 export GLOBAL_CACHE_FILE="global_cache.json"

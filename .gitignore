@@ -164,3 +164,9 @@ scratch/
 
 *.json
 *.pkl
+
+# Local/archived datasets not used by the committed vLLM B2B experiment.
+geo_bench_like_b2b_260412.jsonl
+geo_bench_like_b2c.jsonl
+geo_bench_like_b2c_260412.jsonl
+geo_bench_like_b2b_all_false_report.jsonl

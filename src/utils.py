@@ -10,7 +10,7 @@ PROMPT_TEMPLATE = "<s>[INST] <<SYS>>\n{system_prompt}\n<</SYS>>\n\n{user_msg}[/I
 
 # Ollama 配置
 OLLAMA_BASE_URL = os.environ.get("OLLAMA_BASE_URL", "http://localhost:11434")
-OLLAMA_MODEL = os.environ.get("OLLAMA_MODEL", "llama3.2")
+OLLAMA_MODEL = os.environ.get("OLLAMA_MODEL", "gpt-oss")
 
 def get_prompt(source, query):
     system_prompt = """You are a helpful, respectful and honest assistant.
@@ -165,20 +165,12 @@ def impression_subjective_impression(sentences, query, n = 5, normalize = True, 
             subj_cache_file = dict()
             json.dump(subj_cache_file, open(cache_file, 'w'), indent=2)
     cache = subj_cache_file
-    # TODO: Fix str(idx) issue
-    # from pdb import set_trace
-    if str((sentences, query)) in cache:
-        if str(idx) in cache[str((sentences, query))]:
+    cache_key = str((sentences, query))
+    idx_key = str(idx)
+    if cache_key in cache:
+        if idx_key in cache[cache_key]:
             print('Okay we have a hit!')
-            # new_scores = []
-            # for idx in range(5):
-            #     sc = cache[str((sentences, query))][str(idx)]
-            #     new_scores.append(sum(sc.values())/len(sc.values()))
-            # return [x/sum(new_scores) for x in new_scores] if normalize else new_scores
-            return returnable_score_from_scores(cache[str((sentences, query))][str(idx)])
-    # TODO: If we don't have a hit, fine, just return 0 or something
-    # set_trace()
-    return [0 if _==idx else 0 for _ in range(n)]
+            return returnable_score_from_scores(cache[cache_key][idx_key])
     def convert_to_number(x, min_val = 1.0):
         try: return max(min(5, float(x)), min_val)
         except: return min_val
@@ -221,11 +213,12 @@ def impression_subjective_impression(sentences, query, n = 5, normalize = True, 
             except Exception as e:
                 print('Error in Ollama-Eval', e)
                 time.sleep(10)
-    avg_score = sum(scores.values())/len(scores.values())
+    if len(scores) == 0:
+        return [0 for _ in range(n)]
     cache = json.load(open(cache_file))
-    if str((sentences, query)) not in cache:
-        cache[str((sentences, query))] = dict()
-    cache[str((sentences, query))][idx] = scores
+    if cache_key not in cache:
+        cache[cache_key] = dict()
+    cache[cache_key][idx_key] = scores
     json.dump(cache, open(cache_file, 'w'), indent=2)
     return returnable_score_from_scores(scores)
 
@@ -236,10 +229,26 @@ CACHE_FILE = os.environ.get('GLOBAL_CACHE_FILE', 'global_cache.json')
 from search_try import search_handler
 from generative_le import generate_answer
 
-def check_summaries_exist(sources, summaries):
+def _response_cache_metadata(num_completions):
+    return {
+        'model': os.environ.get('OLLAMA_MODEL', 'gpt-oss'),
+        'num_completions': num_completions,
+    }
+
+
+def _has_matching_response_metadata(source, response_meta):
+    if response_meta is None:
+        return True
+    metadata = source.get('response_metadata', [])
+    if not metadata:
+        return os.environ.get('ALLOW_LEGACY_RESPONSE_CACHE', 'False') == 'True'
+    return metadata[-1] == response_meta
+
+
+def check_summaries_exist(sources, summaries, response_meta=None):
     for source in sources:
-        s2 = [x['summary'] for x in source['sources']]  
-        if s2 == summaries:
+        s2 = [x['summary'] for x in source['sources']]
+        if s2 == summaries and _has_matching_response_metadata(source, response_meta):
             return source
     return None
 
@@ -279,7 +288,8 @@ def get_answer(query, summaries = None, n = 5, num_completions = 1, cache_idx = 
     if cache.get(query) is None:
         cache[query] = []
     
-    cached_source = check_summaries_exist(cache[query], summaries) if cache.get(query) else None
+    response_meta = _response_cache_metadata(num_completions)
+    cached_source = check_summaries_exist(cache[query], summaries, response_meta=response_meta) if cache.get(query) else None
     if not regenerate_answer and cached_source is not None:
         if len(cached_source['responses']) > 0:
             print('Cache Hit')
@@ -296,23 +306,24 @@ def get_answer(query, summaries = None, n = 5, num_completions = 1, cache_idx = 
 
     if cache.get(query) is None:
         if summaries is None:
-            cache[query] = [{'sources': search_results['sources'], 'responses': [answers]}]
+            cache[query] = [{'sources': search_results['sources'], 'responses': [answers], 'response_metadata': [response_meta]}]
         else:
-            cache[query] = [{'sources': [{'summary' : x} for x in summaries], 'responses': [answers]}]
+            cache[query] = [{'sources': [{'summary' : x} for x in summaries], 'responses': [answers], 'response_metadata': [response_meta]}]
     else:
         flag = False
         for source in cache[query]:
             s2 = [x['summary'] for x in source['sources']]  
             if s2 == summaries:
                 source['responses'].append(answers)
+                source.setdefault('response_metadata', []).append(response_meta)
                 ret_value = source
                 flag = True
                 break
         if not flag:
             if summaries is None:
-                cache[query].append({'sources': search_results['sources'], 'responses': [answers]})
+                cache[query].append({'sources': search_results['sources'], 'responses': [answers], 'response_metadata': [response_meta]})
             else:
-                cache[query].append({'sources': [{'summary' : x, 'source' : y} for x, y in zip(summaries, cache[query][0]['sources'])], 'responses': [answers]})
+                cache[query].append({'sources': [{'summary' : x, 'source' : y} for x, y in zip(summaries, cache[query][0]['sources'])], 'responses': [answers], 'response_metadata': [response_meta]})
     if write_to_cache:
         json.dump(cache, open(CACHE_FILE, 'w'), indent=2)
 

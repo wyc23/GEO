@@ -9,7 +9,7 @@ import sys
 def test_ollama_connection():
     """测试 Ollama 连接"""
     base_url = os.environ.get("OLLAMA_BASE_URL", "http://localhost:11434")
-    model = os.environ.get("OLLAMA_MODEL", "llama3.2")
+    model = os.environ.get("OLLAMA_MODEL", "gpt-oss")
     
     print("=" * 60)
     print("测试 Ollama 配置")

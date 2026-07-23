@@ -15,9 +15,9 @@
 
 2. **下载模型**
    
-   默认使用 `llama3.2` 模型。首次使用前需要下载:
+   默认使用 `gpt-oss` 模型。首次使用前需要下载:
    ```bash
-   ollama pull llama3.2
+   ollama pull gpt-oss
    ```
    
    你也可以选择其他模型,如:
@@ -47,8 +47,8 @@
 # Ollama API 地址 (默认: http://localhost:11434)
 export OLLAMA_BASE_URL="http://localhost:11434"
 
-# 使用的模型名称 (默认: llama3.2)
-export OLLAMA_MODEL="llama3.2"
+# 使用的模型名称 (默认: gpt-oss)
+export OLLAMA_MODEL="gpt-oss"
 
 # 其他原有的环境变量
 export STATIC_CACHE="True"  # 可选
@@ -72,7 +72,7 @@ export GEO_CACHE_FILE="geo_optimizations_cache.json"  # 可选
 
 3. **配置环境变量** (可选)
    ```bash
-   export OLLAMA_MODEL="llama3.2"
+   export OLLAMA_MODEL="gpt-oss"
    export OLLAMA_BASE_URL="http://localhost:11434"
    ```
 
@@ -137,11 +137,11 @@ ollama serve
 
 ### 问题: 模型未找到
 ```
-Error: model 'llama3.2' not found
+Error: model 'gpt-oss' not found
 ```
 **解决方案**: 下载所需模型
 ```bash
-ollama pull llama3.2
+ollama pull gpt-oss
 ```
 
 ### 问题: 响应超时

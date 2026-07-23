@@ -43,7 +43,7 @@ EXTRACTIVE = False
 loaded_cache = None
 LAST_UPDATE_TIME = time.time()
 
-def improve(query : str, idx : int, sources : List[str] = None, summaries : List[str] = None, impression_fn = impression_wordpos_count_simple, returnFullData = False, static_cache=os.environ.get('STATIC_CACHE', None)=='True') -> Tuple[np.array, List]: 
+def improve(query : str, idx : int, sources : List[str] = None, summaries : List[str] = None, impression_fn = impression_wordpos_count_simple, returnFullData = False, static_cache=os.environ.get('STATIC_CACHE', None)=='True', num_completions: int = 5) -> Tuple[np.array, List]:
 	global loaded_cache
 	global LAST_UPDATE_TIME
 	if static_cache:
@@ -60,11 +60,13 @@ def improve(query : str, idx : int, sources : List[str] = None, summaries : List
 		loaded_cache = None
 	# idx indicates the website to boost
 	print('query is', query)
-	answers = get_answer(query, summaries = summaries, num_completions = 5, n = 5, loaded_cache = loaded_cache)
+	n_sources = len(summaries) if summaries is not None else 5
+	answers = get_answer(query, summaries = summaries, num_completions = num_completions, n = n_sources, loaded_cache = loaded_cache)
 	if sources is None:
-		sources = [x['source'] for x in answers['sources']]
+		sources = [x.get('source', x.get('summary', '')) for x in answers['sources']]
 	if summaries is None:
 		summaries = [x['summary'] for x in answers['sources']]
+	n_sources = len(summaries)
 	if len(summaries) == 0:
 		raise ValueError(f"No summaries available for query: {query}")
 	if idx < 0 or idx >= len(summaries):
@@ -73,10 +75,12 @@ def improve(query : str, idx : int, sources : List[str] = None, summaries : List
 	answers = answers['responses'][-1]
 
 	if impression_fn == impression_subjective_impression or  impression_fn == impression_subjpos_detailed or impression_fn == impression_diversity_detailed or impression_fn == impression_uniqueness_detailed or impression_fn == impression_follow_detailed or impression_fn == impression_influence_detailed or impression_fn == impression_relevance_detailed or impression_fn == impression_subjcount_detailed:
-		orig_init_scores = np.array([impression_fn(x, query, 5, idx = idx) for x in answers])
+		orig_init_scores = np.array([impression_fn(x, query, n_sources, idx = idx) for x in answers])
 		orig_init_scores = orig_init_scores[~np.all(orig_init_scores == 0, axis=1)]
+		if len(orig_init_scores) == 0:
+			orig_init_scores = np.zeros((1, n_sources))
 	else:
-		orig_init_scores = np.array([impression_fn(extract_citations_new(x), 5) for x in answers])
+		orig_init_scores = np.array([impression_fn(extract_citations_new(x), n_sources) for x in answers])
 	
 	init_scores = orig_init_scores.mean(axis=0)
 	print('Init Scores: ', init_scores)
@@ -86,13 +90,15 @@ def improve(query : str, idx : int, sources : List[str] = None, summaries : List
 	for meth_name in GEO_METHODS:
 
 		summaries_copy = summaries[:idx] + [GEO_METHODS[meth_name](summaries[idx])] + summaries[idx+1:] 
-		answers = get_answer(query, summaries = summaries_copy, num_completions = 5, n = 5, loaded_cache = loaded_cache)
+		answers = get_answer(query, summaries = summaries_copy, num_completions = num_completions, n = n_sources, loaded_cache = loaded_cache)
 		answers = answers['responses'][-1]
 		if impression_fn == impression_subjective_impression or impression_fn == impression_subjpos_detailed or impression_fn == impression_diversity_detailed or impression_fn == impression_uniqueness_detailed or impression_fn == impression_follow_detailed or impression_fn == impression_influence_detailed or impression_fn == impression_relevance_detailed or impression_fn == impression_subjcount_detailed:
-			final_scores = np.array([impression_fn(x, query, 5, idx = idx) for x in answers])
+			final_scores = np.array([impression_fn(x, query, n_sources, idx = idx) for x in answers])
 			final_scores = final_scores[~np.all(final_scores == 0, axis=1)]
+			if len(final_scores) == 0:
+				final_scores = np.zeros((1, n_sources))
 		else:
-			final_scores = [impression_fn(extract_citations_new(x), 5) for x in answers]
+			final_scores = [impression_fn(extract_citations_new(x), n_sources) for x in answers]
 		all_final_scores.append(np.array(final_scores))
 		final_scores = np.array(final_scores).mean(axis=0)
 		print(final_scores)

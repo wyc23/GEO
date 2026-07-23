@@ -193,7 +193,7 @@ if __name__ == '__main__':
     
     print("\n提示: 确保已经:")
     print("  1. 启动 Ollama: ollama serve")
-    print("  2. 下载模型: ollama pull llama3.2")
+    print("  2. 下载模型: ollama pull gpt-oss")
     print("  3. 配置环境变量 (可选)")
     print()
     input("按回车键开始测试...")

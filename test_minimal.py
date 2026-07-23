@@ -85,7 +85,7 @@ def minimal_test():
         print(f"✗ 生成答案失败: {e}")
         print("\n可能的原因:")
         print("  1. Ollama 服务未运行 → 执行: ollama serve")
-        print("  2. 模型未下载 → 执行: ollama pull llama3.2")
+        print("  2. 模型未下载 → 执行: ollama pull gpt-oss")
         print(f"  3. 配置问题 → 检查 OLLAMA_BASE_URL 和 OLLAMA_MODEL")
         return
     
@@ -190,14 +190,14 @@ if __name__ == '__main__':
     print("只需要 Ollama 服务运行即可")
     print("\n准备工作:")
     print("  1. 启动 Ollama: ollama serve")
-    print("  2. 确保已下载模型: ollama pull llama3.2")
+    print("  2. 确保已下载模型: ollama pull gpt-oss")
     print()
     
     # 检查 Ollama 配置
     import os
     print(f"当前配置:")
     print(f"  OLLAMA_BASE_URL: {os.environ.get('OLLAMA_BASE_URL', 'http://localhost:11434')}")
-    print(f"  OLLAMA_MODEL: {os.environ.get('OLLAMA_MODEL', 'llama3.2')}")
+    print(f"  OLLAMA_MODEL: {os.environ.get('OLLAMA_MODEL', 'gpt-oss')}")
     print()
     
     input("按回车键开始测试...")

@@ -13,7 +13,7 @@ COMMON_USER_PROMPT_START = "General Instruction: I will give you a source of web
 
 # Ollama 配置
 OLLAMA_BASE_URL = os.environ.get("OLLAMA_BASE_URL", "http://localhost:11434")
-OLLAMA_MODEL = os.environ.get("OLLAMA_MODEL", "llama3.2")
+OLLAMA_MODEL = os.environ.get("OLLAMA_MODEL", "gpt-oss")
 
 global_cache = None
 def call_gpt(user_prompt, system_prompt = COMMON_SYSTEM_PROMPT, model = None, temperature = 0.0, num_completions = 1, regenerte_answer = False, pre_msgs = None):

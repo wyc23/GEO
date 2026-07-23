@@ -17,7 +17,7 @@ fi
 
 # 设置默认环境变量
 export OLLAMA_BASE_URL="${OLLAMA_BASE_URL:-http://localhost:11434}"
-export OLLAMA_MODEL="${OLLAMA_MODEL:-llama3.2}"
+export OLLAMA_MODEL="${OLLAMA_MODEL:-gpt-oss}"
 
 echo "配置信息:"
 echo "  Ollama URL: $OLLAMA_BASE_URL"
