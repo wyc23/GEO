@@ -1,0 +1,1975 @@
+{
+  "dataset_records": 160,
+  "expected_sources": 1600,
+  "label_rows": 1600,
+  "true_sources": 442,
+  "false_sources": 1158,
+  "error_sources": 0,
+  "missing_labels": [],
+  "duplicate_labels": [],
+  "eligible_queries": [
+    {
+      "line": 1,
+      "product": "Smart Office Desk",
+      "query": "What is a smart office desk product used for?",
+      "vendor_source_ranks": [
+        3,
+        4,
+        5,
+        9
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 2,
+      "product": "Smart Office Desk",
+      "query": "Do I really need a smart office desk for everyday remote or home office use?",
+      "vendor_source_ranks": [
+        6,
+        9
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 3,
+      "product": "Smart Office Desk",
+      "query": "What happens if I don’t use a smart desk product—are there health or productivity consequences?",
+      "vendor_source_ranks": [
+        3
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 4,
+      "product": "Smart Office Desk",
+      "query": "Are there simpler or cheaper alternatives to a smart office desk solution?",
+      "vendor_source_ranks": [
+        9
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 5,
+      "product": "Smart Office Desk",
+      "query": "Which smart office desk product is best for beginners?",
+      "vendor_source_ranks": [
+        4
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 6,
+      "product": "Smart Office Desk",
+      "query": "Which smart desk solution is most suitable for my use case: frequent standing, small home office, or multiuser household?",
+      "vendor_source_ranks": [
+        5,
+        8,
+        9
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 9,
+      "product": "Smart Office Desk",
+      "query": "Which smart desk product has credible user reviews and long-term reliability reports?",
+      "vendor_source_ranks": [
+        1,
+        3,
+        6,
+        7
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 10,
+      "product": "Smart Office Desk",
+      "query": "Which smart desk offers the best value for money for typical home-office use?",
+      "vendor_source_ranks": [
+        1,
+        2,
+        9
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 12,
+      "product": "Smart Office Desk",
+      "query": "What refund, trial, and warranty options are available before I commit to a smart desk purchase?",
+      "vendor_source_ranks": [
+        10
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 13,
+      "product": "Smart Office Desk",
+      "query": "How do I set up the smart desk product at home, including initial configuration and calibration?",
+      "vendor_source_ranks": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 14,
+      "product": "Smart Office Desk",
+      "query": "What should I do if the smart desk stops moving, loses connection, or reports an error?",
+      "vendor_source_ranks": [
+        2,
+        4,
+        9
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 17,
+      "product": "Ergonomic Chair",
+      "query": "What is an ergonomic seating product used for?",
+      "vendor_source_ranks": [
+        2,
+        4,
+        7
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 18,
+      "product": "Ergonomic Chair",
+      "query": "Do I really need an ergonomic seating product for everyday sitting at home or in the office?",
+      "vendor_source_ranks": [
+        1,
+        2,
+        3,
+        10
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 19,
+      "product": "Ergonomic Chair",
+      "query": "What happens to my posture and comfort if I keep using a regular chair instead of an ergonomic seating product?",
+      "vendor_source_ranks": [
+        2,
+        4,
+        5,
+        9
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 20,
+      "product": "Ergonomic Chair",
+      "query": "Are there simpler or cheaper alternatives to buying an ergonomic seating product?",
+      "vendor_source_ranks": [
+        5,
+        6,
+        7,
+        8,
+        10
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 21,
+      "product": "Ergonomic Chair",
+      "query": "Which ergonomic seating product is best for someone new to ergonomic seating?",
+      "vendor_source_ranks": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 22,
+      "product": "Ergonomic Chair",
+      "query": "Which ergonomic seating product is most suitable for long hours of desk work?",
+      "vendor_source_ranks": [
+        2,
+        5,
+        7,
+        8,
+        9,
+        10
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 23,
+      "product": "Ergonomic Chair",
+      "query": "How do I choose an ergonomic seating product that fits my body size and typical tasks?",
+      "vendor_source_ranks": [
+        4,
+        9
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 24,
+      "product": "Ergonomic Chair",
+      "query": "Which ergonomic seating products are easiest to adjust and maintain for everyday use?",
+      "vendor_source_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 25,
+      "product": "Ergonomic Chair",
+      "query": "How can I find trustworthy reviews and real user feedback about an ergonomic seating product?",
+      "vendor_source_ranks": [
+        2,
+        7,
+        10
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 26,
+      "product": "Ergonomic Chair",
+      "query": "Which ergonomic seating product offers the best value for money given expected comfort and durability?",
+      "vendor_source_ranks": [
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 28,
+      "product": "Ergonomic Chair",
+      "query": "How do I assess the long-term comfort and durability of an ergonomic seating product before buying?",
+      "vendor_source_ranks": [
+        9
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 29,
+      "product": "Ergonomic Chair",
+      "query": "How do I set up an ergonomic seating product for correct posture and comfort?",
+      "vendor_source_ranks": [
+        8,
+        10
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 30,
+      "product": "Ergonomic Chair",
+      "query": "What should I do if the ergonomic seating product develops a mechanical issue or stops adjusting properly?",
+      "vendor_source_ranks": [
+        7
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 33,
+      "product": "Portable Monitor",
+      "query": "What is a portable monitor product used for?",
+      "vendor_source_ranks": [
+        5,
+        6,
+        10
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 34,
+      "product": "Portable Monitor",
+      "query": "Do I really need a portable monitor for everyday laptop or phone use?",
+      "vendor_source_ranks": [
+        2,
+        3,
+        4
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 35,
+      "product": "Portable Monitor",
+      "query": "What are the practical consequences if I don’t use a portable monitor when traveling or working remotely?",
+      "vendor_source_ranks": [
+        2,
+        5,
+        7,
+        8,
+        10
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 36,
+      "product": "Portable Monitor",
+      "query": "Are there simpler or lower-cost alternatives to using a portable monitor product?",
+      "vendor_source_ranks": [
+        3,
+        6,
+        7,
+        10
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 37,
+      "product": "Portable Monitor",
+      "query": "Which portable monitor product is best for beginners?",
+      "vendor_source_ranks": [
+        1,
+        3,
+        5,
+        7,
+        9
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 38,
+      "product": "Portable Monitor",
+      "query": "Which portable monitor solution is most suitable for my use case (traveling, gaming, or productivity)?",
+      "vendor_source_ranks": [
+        1,
+        3,
+        5,
+        6,
+        7
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 39,
+      "product": "Portable Monitor",
+      "query": "Which portable monitor product is easiest to carry, set up, and store?",
+      "vendor_source_ranks": [
+        2,
+        4,
+        5,
+        6,
+        7,
+        9
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 40,
+      "product": "Portable Monitor",
+      "query": "Which portable monitor solutions are compatible with my phone and laptop operating systems?",
+      "vendor_source_ranks": [
+        4,
+        6,
+        8
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 41,
+      "product": "Portable Monitor",
+      "query": "Which portable monitor product has trustworthy user reviews?",
+      "vendor_source_ranks": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        8,
+        9,
+        10
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 42,
+      "product": "Portable Monitor",
+      "query": "Which portable monitor solution offers the best value for money for my budget?",
+      "vendor_source_ranks": [
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 43,
+      "product": "Portable Monitor",
+      "query": "Which portable monitor product provides the best display quality and portability trade-off?",
+      "vendor_source_ranks": [
+        1,
+        3,
+        5,
+        7,
+        8,
+        9,
+        10
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 44,
+      "product": "Portable Monitor",
+      "query": "Which portable monitor solutions offer trial periods, easy returns, or clear warranty terms to minimize buyer’s regret?",
+      "vendor_source_ranks": [
+        1,
+        4,
+        6
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 45,
+      "product": "Portable Monitor",
+      "query": "How do I set up the portable monitor product with my phone or laptop step by step?",
+      "vendor_source_ranks": [
+        6,
+        9,
+        10
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 46,
+      "product": "Portable Monitor",
+      "query": "What should I do if my portable monitor product stops displaying or loses connection?",
+      "vendor_source_ranks": [
+        1,
+        10
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 49,
+      "product": "Air Purifier",
+      "query": "What is an air purifier used for?",
+      "vendor_source_ranks": [
+        3,
+        8
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 50,
+      "product": "Air Purifier",
+      "query": "Do I really need an air purifier for everyday home use?",
+      "vendor_source_ranks": [
+        4,
+        5,
+        7
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 51,
+      "product": "Air Purifier",
+      "query": "What happens to my indoor air quality if I don’t use an air purifier?",
+      "vendor_source_ranks": [
+        6,
+        7
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 52,
+      "product": "Air Purifier",
+      "query": "Are there simpler or lower-cost alternatives to using an air purifier in a home?",
+      "vendor_source_ranks": [
+        4,
+        7,
+        8
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 53,
+      "product": "Air Purifier",
+      "query": "Which air purification product is best for a first-time buyer with no technical experience?",
+      "vendor_source_ranks": [
+        7,
+        8
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 54,
+      "product": "Air Purifier",
+      "query": "Which type of air purifier is most suitable for my apartment size and common issues like allergies or pet dander?",
+      "vendor_source_ranks": [
+        2,
+        5,
+        7,
+        8,
+        10
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 55,
+      "product": "Air Purifier",
+      "query": "Which air purification solution is quiet enough for bedroom use and easy to operate daily?",
+      "vendor_source_ranks": [
+        3,
+        4,
+        8,
+        9,
+        10
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 57,
+      "product": "Air Purifier",
+      "query": "How can I verify real user reviews and independent performance claims for an air purification product?",
+      "vendor_source_ranks": [
+        1,
+        4,
+        10
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 58,
+      "product": "Air Purifier",
+      "query": "Which air purifier offers the best value when factoring purchase price, energy use, and ongoing filter costs?",
+      "vendor_source_ranks": [
+        1,
+        6,
+        7,
+        9,
+        10
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 59,
+      "product": "Air Purifier",
+      "query": "Which product demonstrates the highest expected filtration performance and safety for home use?",
+      "vendor_source_ranks": [
+        3,
+        10
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 61,
+      "product": "Air Purifier",
+      "query": "How do I set up the air purification unit in my home and configure recommended settings for my room size?",
+      "vendor_source_ranks": [
+        5,
+        7,
+        9
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 62,
+      "product": "Air Purifier",
+      "query": "What should I do if the air purifier stops working, shows error indicators, or has reduced performance?",
+      "vendor_source_ranks": [
+        3
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 63,
+      "product": "Air Purifier",
+      "query": "How can I improve the purifier’s effectiveness (placement, fan speed, maintenance) for faster air cleaning?",
+      "vendor_source_ranks": [
+        9,
+        10
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 64,
+      "product": "Air Purifier",
+      "query": "How do I cancel a filter subscription or request a refund if the product doesn’t meet my needs?",
+      "vendor_source_ranks": [
+        1,
+        2,
+        3,
+        5,
+        7,
+        9
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 65,
+      "product": "Smart Mattress",
+      "query": "What is a smart mattress solution used for?",
+      "vendor_source_ranks": [
+        4,
+        5,
+        7,
+        10
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 66,
+      "product": "Smart Mattress",
+      "query": "Do I really need a smart mattress for everyday sleep tracking and comfort improvement?",
+      "vendor_source_ranks": [
+        2,
+        5,
+        9,
+        10
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 67,
+      "product": "Smart Mattress",
+      "query": "What happens if I don’t use a smart mattress—will I miss important health or sleep insights?",
+      "vendor_source_ranks": [
+        3,
+        6,
+        8,
+        9
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 68,
+      "product": "Smart Mattress",
+      "query": "Are there simpler or cheaper alternatives to a smart mattress solution for improving sleep?",
+      "vendor_source_ranks": [
+        1,
+        4,
+        5,
+        9,
+        10
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 69,
+      "product": "Smart Mattress",
+      "query": "Which smart mattress solution is best for beginners who want a low-complexity setup?",
+      "vendor_source_ranks": [
+        1,
+        2,
+        4
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 72,
+      "product": "Smart Mattress",
+      "query": "Which smart mattress service offers flexible configuration for different sleep positions, firmness preferences, and partner sharing?",
+      "vendor_source_ranks": [
+        4,
+        5,
+        6,
+        8,
+        9,
+        10
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 74,
+      "product": "Smart Mattress",
+      "query": "Which smart mattress solution offers the best value for money considering features, durability, and ongoing costs?",
+      "vendor_source_ranks": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 75,
+      "product": "Smart Mattress",
+      "query": "How secure is the personal sleep and health data collected by a smart mattress service?",
+      "vendor_source_ranks": [
+        1,
+        3,
+        5,
+        6,
+        7,
+        10
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 76,
+      "product": "Smart Mattress",
+      "query": "What trial, refund, or return policies do smart mattress platforms typically offer to reduce purchase regret?",
+      "vendor_source_ranks": [
+        10
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 77,
+      "product": "Smart Mattress",
+      "query": "How do I set up the smart mattress solution with my phone and home network?",
+      "vendor_source_ranks": [
+        7,
+        8,
+        9,
+        10
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 78,
+      "product": "Smart Mattress",
+      "query": "What should I do if the smart mattress stops reporting data, loses connectivity, or has sensor errors?",
+      "vendor_source_ranks": [
+        1,
+        2,
+        3,
+        10
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 80,
+      "product": "Smart Mattress",
+      "query": "How do I cancel my smart mattress service subscription, manage account settings, or request a refund?",
+      "vendor_source_ranks": [
+        4
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 81,
+      "product": "Robot Vacuum",
+      "query": "What is a robot vacuum used for?",
+      "vendor_source_ranks": [
+        2,
+        5,
+        7,
+        10
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 82,
+      "product": "Robot Vacuum",
+      "query": "Do I really need a robot vacuum for everyday home cleaning?",
+      "vendor_source_ranks": [
+        1,
+        9,
+        10
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 83,
+      "product": "Robot Vacuum",
+      "query": "What happens if I don’t use a robot vacuum—what cleaning gaps or time costs should I expect?",
+      "vendor_source_ranks": [
+        10
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 84,
+      "product": "Robot Vacuum",
+      "query": "Are there simpler or lower-cost alternatives to using a robot vacuum?",
+      "vendor_source_ranks": [
+        2,
+        5,
+        6,
+        9,
+        10
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 85,
+      "product": "Robot Vacuum",
+      "query": "Which robot vacuum solution is best for beginners who want minimal setup and maintenance?",
+      "vendor_source_ranks": [
+        1,
+        2,
+        3,
+        5,
+        8,
+        9
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 86,
+      "product": "Robot Vacuum",
+      "query": "Which robot vacuum system is most suitable for my home layout, room sizes, and floor types?",
+      "vendor_source_ranks": [
+        1,
+        2,
+        3,
+        5,
+        7,
+        8,
+        9,
+        10
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 87,
+      "product": "Robot Vacuum",
+      "query": "Which robot vacuum product is best for households with pets or frequent debris?",
+      "vendor_source_ranks": [
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 88,
+      "product": "Robot Vacuum",
+      "query": "Which robot vacuum platform is easiest to set up, maintain, and control from a smartphone?",
+      "vendor_source_ranks": [
+        1,
+        2,
+        5,
+        7,
+        8
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 89,
+      "product": "Robot Vacuum",
+      "query": "How can I verify real user reviews and performance reports for a robot vacuum product?",
+      "vendor_source_ranks": [
+        3,
+        4,
+        5,
+        7,
+        9
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 90,
+      "product": "Robot Vacuum",
+      "query": "How do I determine which robot vacuum offers the best value for money based on features, durability, and lifecycle costs?",
+      "vendor_source_ranks": [
+        6,
+        8,
+        10
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 91,
+      "product": "Robot Vacuum",
+      "query": "How do I assess a robot vacuum's safety features and data-privacy practices related to mapping and sensor data?",
+      "vendor_source_ranks": [
+        3,
+        5,
+        6,
+        7,
+        8
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 93,
+      "product": "Robot Vacuum",
+      "query": "How do I set up and map my home for a robot vacuum system?",
+      "vendor_source_ranks": [
+        7,
+        8,
+        9
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 94,
+      "product": "Robot Vacuum",
+      "query": "What troubleshooting steps should I follow if the robot vacuum stops cleaning, loses connection, or gets stuck?",
+      "vendor_source_ranks": [
+        10
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 95,
+      "product": "Robot Vacuum",
+      "query": "How can I improve cleaning performance, navigation reliability, and battery life in my home?",
+      "vendor_source_ranks": [
+        3,
+        4
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 96,
+      "product": "Robot Vacuum",
+      "query": "How do I request a refund, file a warranty claim, or cancel associated service subscriptions for a robot vacuum?",
+      "vendor_source_ranks": [
+        1,
+        9
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 97,
+      "product": "Smart Door Lock",
+      "query": "What does a smart door lock system do and how does it change everyday home access?",
+      "vendor_source_ranks": [
+        2,
+        5,
+        6,
+        7,
+        10
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 98,
+      "product": "Smart Door Lock",
+      "query": "Do I really need a smart door lock for daily convenience at home or is a traditional lock sufficient?",
+      "vendor_source_ranks": [
+        1,
+        6,
+        10
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 99,
+      "product": "Smart Door Lock",
+      "query": "What are the practical consequences if I don’t adopt a smart door lock solution?",
+      "vendor_source_ranks": [
+        1
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 100,
+      "product": "Smart Door Lock",
+      "query": "Are there simpler or lower-tech alternatives to a smart door lock for improving convenience?",
+      "vendor_source_ranks": [
+        2,
+        3,
+        4,
+        6,
+        7,
+        8
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 101,
+      "product": "Smart Door Lock",
+      "query": "Which smart door lock solution is best for non-technical homeowners seeking convenience?",
+      "vendor_source_ranks": [
+        2,
+        4,
+        6,
+        7,
+        10
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 102,
+      "product": "Smart Door Lock",
+      "query": "Which smart door lock system is most suitable for my living situation (single-family home, apartment, or rental)?",
+      "vendor_source_ranks": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 103,
+      "product": "Smart Door Lock",
+      "query": "Which solution offers the simplest and most reliable keyless entry options for everyday use?",
+      "vendor_source_ranks": [
+        3,
+        4,
+        8,
+        9,
+        10
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 104,
+      "product": "Smart Door Lock",
+      "query": "Which smart door lock platforms are compatible with my smartphone, smart home hub, and voice assistants?",
+      "vendor_source_ranks": [
+        1,
+        3,
+        4,
+        6,
+        8,
+        10
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 105,
+      "product": "Smart Door Lock",
+      "query": "Which smart door lock solutions have trustworthy user reviews and independent reliability assessments?",
+      "vendor_source_ranks": [
+        1,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 106,
+      "product": "Smart Door Lock",
+      "query": "Which smart door lock offers the best overall value for money considering convenience, security, and long-term costs?",
+      "vendor_source_ranks": [
+        2,
+        3,
+        4,
+        7,
+        8,
+        9
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 107,
+      "product": "Smart Door Lock",
+      "query": "How secure are smart door lock systems against tampering, cloning, or remote compromise in real-world use?",
+      "vendor_source_ranks": [
+        2,
+        3,
+        5,
+        7,
+        9
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 109,
+      "product": "Smart Door Lock",
+      "query": "How do I set up the smart door lock system on my smartphone and connect it reliably to my home network?",
+      "vendor_source_ranks": [
+        6,
+        7,
+        8,
+        10
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 110,
+      "product": "Smart Door Lock",
+      "query": "What should I do if the smart door lock loses connection, fails to authenticate, or otherwise stops responding?",
+      "vendor_source_ranks": [
+        2,
+        8
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 111,
+      "product": "Smart Door Lock",
+      "query": "How can I maximize battery life and ensure reliable day-to-day operation of the smart door lock?",
+      "vendor_source_ranks": [
+        1,
+        4,
+        6,
+        8
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 113,
+      "product": "Smart Lighting",
+      "query": "What is a smart lighting product used for in a typical home?",
+      "vendor_source_ranks": [
+        1,
+        9
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 115,
+      "product": "Smart Lighting",
+      "query": "What happens if I don’t use smart lighting—what benefits would I be missing?",
+      "vendor_source_ranks": [
+        1,
+        2,
+        7
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 116,
+      "product": "Smart Lighting",
+      "query": "Are there simpler, non‑smart alternatives to a smart lighting solution?",
+      "vendor_source_ranks": [
+        8,
+        10
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 117,
+      "product": "Smart Lighting",
+      "query": "Which smart lighting system is best for beginners who want minimal setup?",
+      "vendor_source_ranks": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 118,
+      "product": "Smart Lighting",
+      "query": "Which consumer smart lighting solution suits my living situation (apartment, rental, or single‑family home)?",
+      "vendor_source_ranks": [
+        1,
+        2,
+        3
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 119,
+      "product": "Smart Lighting",
+      "query": "How easy is it to pair a smart lighting product with my phone and home assistant?",
+      "vendor_source_ranks": [
+        5,
+        9,
+        10
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 120,
+      "product": "Smart Lighting",
+      "query": "What are the ongoing maintenance, subscription, or firmware update requirements for different consumer smart lighting systems?",
+      "vendor_source_ranks": [
+        9
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 122,
+      "product": "Smart Lighting",
+      "query": "How do I determine which smart lighting system offers the best value for my specific needs?",
+      "vendor_source_ranks": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        9,
+        10
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 123,
+      "product": "Smart Lighting",
+      "query": "What security and privacy considerations should I check before buying a consumer smart lighting product?",
+      "vendor_source_ranks": [
+        1,
+        7,
+        9
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 124,
+      "product": "Smart Lighting",
+      "query": "Do consumer smart lighting services typically offer trial periods, satisfaction guarantees, or easy return policies?",
+      "vendor_source_ranks": [
+        3,
+        9
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 125,
+      "product": "Smart Lighting",
+      "query": "How do I set up a consumer smart lighting system in my home step‑by‑step?",
+      "vendor_source_ranks": [
+        4,
+        8
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 126,
+      "product": "Smart Lighting",
+      "query": "What should I do if my smart lighting system disconnects, becomes unresponsive, or loses automation rules?",
+      "vendor_source_ranks": [
+        8
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 128,
+      "product": "Smart Lighting",
+      "query": "How do I cancel any subscription associated with my smart lighting service or request a refund?",
+      "vendor_source_ranks": [
+        7,
+        8,
+        9,
+        10
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 129,
+      "product": "Coffee Machine",
+      "query": "What does a coffee product do and what benefits does it provide at home?",
+      "vendor_source_ranks": [
+        4
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 131,
+      "product": "Coffee Machine",
+      "query": "What happens to my morning routine if I don’t get a home coffee system?",
+      "vendor_source_ranks": [
+        8
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 133,
+      "product": "Coffee Machine",
+      "query": "Which coffee product is best for beginners who want convenience with minimal setup?",
+      "vendor_source_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        10
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 137,
+      "product": "Coffee Machine",
+      "query": "Which coffee product has trustworthy user reviews and real-world reliability reports?",
+      "vendor_source_ranks": [
+        1,
+        4,
+        5,
+        9
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 138,
+      "product": "Coffee Machine",
+      "query": "Which coffee solution offers the best value for money given my budget and usage?",
+      "vendor_source_ranks": [
+        3,
+        6,
+        9,
+        10
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 139,
+      "product": "Coffee Machine",
+      "query": "Which product has the best track record for consistent beverage quality?",
+      "vendor_source_ranks": [
+        7
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 140,
+      "product": "Coffee Machine",
+      "query": "What are the return, trial, or warranty options if I’m not satisfied with the coffee solution?",
+      "vendor_source_ranks": [
+        7,
+        10
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 141,
+      "product": "Coffee Machine",
+      "query": "How do I set up the coffee product at home with minimal effort?",
+      "vendor_source_ranks": [
+        5
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 142,
+      "product": "Coffee Machine",
+      "query": "What should I do if the coffee system stops working or produces poor beverages?",
+      "vendor_source_ranks": [
+        3
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 144,
+      "product": "Coffee Machine",
+      "query": "How do I return the coffee product or request a refund if it doesn’t meet my needs?",
+      "vendor_source_ranks": [
+        1,
+        4
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 145,
+      "product": "VPN",
+      "query": "What is a secure access solution used for in everyday internet use?",
+      "vendor_source_ranks": [
+        1,
+        5,
+        10
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 146,
+      "product": "VPN",
+      "query": "Do I really need a secure access solution for typical home browsing and streaming?",
+      "vendor_source_ranks": [
+        2,
+        3,
+        5,
+        7,
+        10
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 148,
+      "product": "VPN",
+      "query": "Are there simpler or lower-effort alternatives to using a dedicated secure access solution for privacy or basic security?",
+      "vendor_source_ranks": [
+        1
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 156,
+      "product": "VPN",
+      "query": "Does the solution offer a free trial or a clear refund policy to minimize purchase regret?",
+      "vendor_source_ranks": [
+        7
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 159,
+      "product": "VPN",
+      "query": "How can I improve the solution's speed and reduce latency on my home network?",
+      "vendor_source_ranks": [
+        7
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    },
+    {
+      "line": 160,
+      "product": "VPN",
+      "query": "How do I cancel my subscription or request a refund if the solution does not meet my needs?",
+      "vendor_source_ranks": [
+        8
+      ],
+      "empty_source_ranks": [],
+      "classification_error_ranks": []
+    }
+  ],
+  "skipped_queries": [
+    {
+      "line": 7,
+      "product": "Smart Office Desk",
+      "query": "Which product is easiest to set up and configure without technical support?",
+      "vendor_source_ranks": [],
+      "empty_source_ranks": [],
+      "classification_error_ranks": [],
+      "reasons": [
+        "no_vendor_linked_source"
+      ]
+    },
+    {
+      "line": 8,
+      "product": "Smart Office Desk",
+      "query": "Which system is compatible with my devices, voice assistants, and home network?",
+      "vendor_source_ranks": [],
+      "empty_source_ranks": [],
+      "classification_error_ranks": [],
+      "reasons": [
+        "no_vendor_linked_source"
+      ]
+    },
+    {
+      "line": 11,
+      "product": "Smart Office Desk",
+      "query": "Which product provides the safest and most reliable operation (e.g., anti-pinch, load handling)?",
+      "vendor_source_ranks": [],
+      "empty_source_ranks": [],
+      "classification_error_ranks": [],
+      "reasons": [
+        "no_vendor_linked_source"
+      ]
+    },
+    {
+      "line": 15,
+      "product": "Smart Office Desk",
+      "query": "How can I improve responsiveness, reduce noise, or extend the lifespan of the smart desk?",
+      "vendor_source_ranks": [],
+      "empty_source_ranks": [],
+      "classification_error_ranks": [],
+      "reasons": [
+        "no_vendor_linked_source"
+      ]
+    },
+    {
+      "line": 16,
+      "product": "Smart Office Desk",
+      "query": "How do I arrange a return, warranty repair, or get a refund for a smart desk product?",
+      "vendor_source_ranks": [],
+      "empty_source_ranks": [],
+      "classification_error_ranks": [],
+      "reasons": [
+        "no_vendor_linked_source"
+      ]
+    },
+    {
+      "line": 27,
+      "product": "Ergonomic Chair",
+      "query": "What trial, return, or warranty options should I look for to minimize the risk of regret?",
+      "vendor_source_ranks": [],
+      "empty_source_ranks": [],
+      "classification_error_ranks": [],
+      "reasons": [
+        "no_vendor_linked_source"
+      ]
+    },
+    {
+      "line": 31,
+      "product": "Ergonomic Chair",
+      "query": "How can I tweak the product setup to improve comfort during long work sessions?",
+      "vendor_source_ranks": [],
+      "empty_source_ranks": [],
+      "classification_error_ranks": [],
+      "reasons": [
+        "no_vendor_linked_source"
+      ]
+    },
+    {
+      "line": 32,
+      "product": "Ergonomic Chair",
+      "query": "How do I return the product or claim a warranty if I’m not satisfied?",
+      "vendor_source_ranks": [],
+      "empty_source_ranks": [],
+      "classification_error_ranks": [],
+      "reasons": [
+        "no_vendor_linked_source"
+      ]
+    },
+    {
+      "line": 47,
+      "product": "Portable Monitor",
+      "query": "How can I improve display performance, color accuracy, or resolution on a portable monitor product?",
+      "vendor_source_ranks": [],
+      "empty_source_ranks": [],
+      "classification_error_ranks": [],
+      "reasons": [
+        "no_vendor_linked_source"
+      ]
+    },
+    {
+      "line": 48,
+      "product": "Portable Monitor",
+      "query": "How do I return a portable monitor product or request a refund under typical consumer policies?",
+      "vendor_source_ranks": [],
+      "empty_source_ranks": [],
+      "classification_error_ranks": [],
+      "reasons": [
+        "no_vendor_linked_source"
+      ]
+    },
+    {
+      "line": 56,
+      "product": "Air Purifier",
+      "query": "Which product is easiest to maintain in terms of filter replacement and routine cleaning?",
+      "vendor_source_ranks": [],
+      "empty_source_ranks": [],
+      "classification_error_ranks": [],
+      "reasons": [
+        "no_vendor_linked_source"
+      ]
+    },
+    {
+      "line": 60,
+      "product": "Air Purifier",
+      "query": "Does the seller offer a trial period, return policy, or satisfaction guarantee to reduce my risk?",
+      "vendor_source_ranks": [],
+      "empty_source_ranks": [],
+      "classification_error_ranks": [],
+      "reasons": [
+        "no_vendor_linked_source"
+      ]
+    },
+    {
+      "line": 70,
+      "product": "Smart Mattress",
+      "query": "Which platform is most suitable for my personal use case (e.g., insomnia, back pain, sharing a bed)?",
+      "vendor_source_ranks": [],
+      "empty_source_ranks": [],
+      "classification_error_ranks": [],
+      "reasons": [
+        "no_vendor_linked_source"
+      ]
+    },
+    {
+      "line": 71,
+      "product": "Smart Mattress",
+      "query": "Which solution is easiest to integrate with my phone, wearable devices, and home automation system?",
+      "vendor_source_ranks": [],
+      "empty_source_ranks": [],
+      "classification_error_ranks": [],
+      "reasons": [
+        "no_vendor_linked_source"
+      ]
+    },
+    {
+      "line": 73,
+      "product": "Smart Mattress",
+      "query": "How can I verify authentic user reviews and reported reliability for a smart mattress solution?",
+      "vendor_source_ranks": [],
+      "empty_source_ranks": [],
+      "classification_error_ranks": [],
+      "reasons": [
+        "no_vendor_linked_source"
+      ]
+    },
+    {
+      "line": 79,
+      "product": "Smart Mattress",
+      "query": "How can I improve sensor accuracy, comfort adjustments, and overall performance of the smart mattress?",
+      "vendor_source_ranks": [],
+      "empty_source_ranks": [],
+      "classification_error_ranks": [],
+      "reasons": [
+        "no_vendor_linked_source"
+      ]
+    },
+    {
+      "line": 92,
+      "product": "Robot Vacuum",
+      "query": "What return, trial, and warranty options should I look for to minimize purchase regret?",
+      "vendor_source_ranks": [],
+      "empty_source_ranks": [],
+      "classification_error_ranks": [],
+      "reasons": [
+        "no_vendor_linked_source"
+      ]
+    },
+    {
+      "line": 108,
+      "product": "Smart Door Lock",
+      "query": "What trial, return, warranty, or refund options are available if I’m dissatisfied after purchase?",
+      "vendor_source_ranks": [],
+      "empty_source_ranks": [],
+      "classification_error_ranks": [],
+      "reasons": [
+        "no_vendor_linked_source"
+      ]
+    },
+    {
+      "line": 112,
+      "product": "Smart Door Lock",
+      "query": "How do I revert to a mechanical key, uninstall the system, or transfer ownership if I move or stop using the solution?",
+      "vendor_source_ranks": [],
+      "empty_source_ranks": [],
+      "classification_error_ranks": [],
+      "reasons": [
+        "no_vendor_linked_source"
+      ]
+    },
+    {
+      "line": 114,
+      "product": "Smart Lighting",
+      "query": "Do I really need a smart lighting system for everyday home use?",
+      "vendor_source_ranks": [],
+      "empty_source_ranks": [],
+      "classification_error_ranks": [],
+      "reasons": [
+        "no_vendor_linked_source"
+      ]
+    },
+    {
+      "line": 121,
+      "product": "Smart Lighting",
+      "query": "Where can I find trustworthy reviews and user feedback for consumer smart lighting solutions?",
+      "vendor_source_ranks": [
+        2,
+        3,
+        5
+      ],
+      "empty_source_ranks": [
+        6
+      ],
+      "classification_error_ranks": [],
+      "reasons": [
+        "empty_source_text"
+      ]
+    },
+    {
+      "line": 127,
+      "product": "Smart Lighting",
+      "query": "How can I improve responsiveness, reliability, and range of my smart lighting product?",
+      "vendor_source_ranks": [],
+      "empty_source_ranks": [],
+      "classification_error_ranks": [],
+      "reasons": [
+        "no_vendor_linked_source"
+      ]
+    },
+    {
+      "line": 130,
+      "product": "Coffee Machine",
+      "query": "Do I really need a coffee solution for everyday use, or are simpler options sufficient?",
+      "vendor_source_ranks": [],
+      "empty_source_ranks": [],
+      "classification_error_ranks": [],
+      "reasons": [
+        "no_vendor_linked_source"
+      ]
+    },
+    {
+      "line": 132,
+      "product": "Coffee Machine",
+      "query": "Are there simpler or lower-cost alternatives to owning a coffee product?",
+      "vendor_source_ranks": [],
+      "empty_source_ranks": [],
+      "classification_error_ranks": [],
+      "reasons": [
+        "no_vendor_linked_source"
+      ]
+    },
+    {
+      "line": 134,
+      "product": "Coffee Machine",
+      "query": "Which coffee solution is most suitable for my typical morning routine and household size?",
+      "vendor_source_ranks": [],
+      "empty_source_ranks": [],
+      "classification_error_ranks": [],
+      "reasons": [
+        "no_vendor_linked_source"
+      ]
+    },
+    {
+      "line": 135,
+      "product": "Coffee Machine",
+      "query": "Which system is easiest to maintain for a non-technical user?",
+      "vendor_source_ranks": [],
+      "empty_source_ranks": [],
+      "classification_error_ranks": [],
+      "reasons": [
+        "no_vendor_linked_source"
+      ]
+    },
+    {
+      "line": 136,
+      "product": "Coffee Machine",
+      "query": "Which coffee product works well with the types of beverages I prefer (espresso-style vs brewed)?",
+      "vendor_source_ranks": [],
+      "empty_source_ranks": [],
+      "classification_error_ranks": [],
+      "reasons": [
+        "no_vendor_linked_source"
+      ]
+    },
+    {
+      "line": 143,
+      "product": "Coffee Machine",
+      "query": "How can I improve beverage quality or speed from my coffee solution?",
+      "vendor_source_ranks": [],
+      "empty_source_ranks": [],
+      "classification_error_ranks": [],
+      "reasons": [
+        "no_vendor_linked_source"
+      ]
+    },
+    {
+      "line": 147,
+      "product": "VPN",
+      "query": "What are the risks or consequences if I don’t use a secure access solution on public networks?",
+      "vendor_source_ranks": [],
+      "empty_source_ranks": [],
+      "classification_error_ranks": [],
+      "reasons": [
+        "no_vendor_linked_source"
+      ]
+    },
+    {
+      "line": 149,
+      "product": "VPN",
+      "query": "Which consumer-oriented solution is best for beginners with minimal technical knowledge?",
+      "vendor_source_ranks": [],
+      "empty_source_ranks": [],
+      "classification_error_ranks": [],
+      "reasons": [
+        "no_vendor_linked_source"
+      ]
+    },
+    {
+      "line": 150,
+      "product": "VPN",
+      "query": "Which solution is most suitable for my personal use cases (streaming, banking, travel) and device mix?",
+      "vendor_source_ranks": [],
+      "empty_source_ranks": [],
+      "classification_error_ranks": [],
+      "reasons": [
+        "no_vendor_linked_source"
+      ]
+    },
+    {
+      "line": 151,
+      "product": "VPN",
+      "query": "Is the solution compatible with common devices like phones, laptops, and smart TVs?",
+      "vendor_source_ranks": [],
+      "empty_source_ranks": [],
+      "classification_error_ranks": [],
+      "reasons": [
+        "no_vendor_linked_source"
+      ]
+    },
+    {
+      "line": 152,
+      "product": "VPN",
+      "query": "How simple is the initial setup and daily use for a non-technical user?",
+      "vendor_source_ranks": [],
+      "empty_source_ranks": [],
+      "classification_error_ranks": [],
+      "reasons": [
+        "no_vendor_linked_source"
+      ]
+    },
+    {
+      "line": 153,
+      "product": "VPN",
+      "query": "Where can I find trustworthy user reviews and independent tests of consumer secure access solutions?",
+      "vendor_source_ranks": [],
+      "empty_source_ranks": [],
+      "classification_error_ranks": [],
+      "reasons": [
+        "no_vendor_linked_source"
+      ]
+    },
+    {
+      "line": 154,
+      "product": "VPN",
+      "query": "Which solution offers the best value for my budget considering speed, privacy, and subscription terms?",
+      "vendor_source_ranks": [],
+      "empty_source_ranks": [],
+      "classification_error_ranks": [],
+      "reasons": [
+        "no_vendor_linked_source"
+      ]
+    },
+    {
+      "line": 155,
+      "product": "VPN",
+      "query": "How can I assess the actual security level of a consumer-facing solution before purchasing?",
+      "vendor_source_ranks": [],
+      "empty_source_ranks": [],
+      "classification_error_ranks": [],
+      "reasons": [
+        "no_vendor_linked_source"
+      ]
+    },
+    {
+      "line": 157,
+      "product": "VPN",
+      "query": "How do I set up the solution on my phone and laptop step by step?",
+      "vendor_source_ranks": [],
+      "empty_source_ranks": [],
+      "classification_error_ranks": [],
+      "reasons": [
+        "no_vendor_linked_source"
+      ]
+    },
+    {
+      "line": 158,
+      "product": "VPN",
+      "query": "What troubleshooting steps should I follow if the solution fails to connect or drops frequently?",
+      "vendor_source_ranks": [],
+      "empty_source_ranks": [],
+      "classification_error_ranks": [],
+      "reasons": [
+        "no_vendor_linked_source"
+      ]
+    }
+  ]
+}
