@@ -32,6 +32,11 @@ def parse_args():
     parser.add_argument("--start-line", type=int, default=1)
     parser.add_argument("--limit", type=int, default=None)
     parser.add_argument("--append", action="store_true")
+    parser.add_argument(
+        "--resume",
+        action="store_true",
+        help="Keep completed/skipped rows, discard error rows, and continue missing lines.",
+    )
     parser.add_argument("--metrics", default="simple_wordpos,simple_word,simple_pos")
     parser.add_argument("--answer-max-tokens", type=int, default=4096)
     parser.add_argument("--optimization-max-tokens", type=int, default=4096)
@@ -114,6 +119,20 @@ def append_jsonl(path, row):
         f.flush()
 
 
+def load_jsonl(path):
+    if not path.exists():
+        return []
+    with path.open("r", encoding="utf-8") as f:
+        return [json.loads(line) for line in f if line.strip()]
+
+
+def write_jsonl(path, rows):
+    rows = sorted(rows, key=lambda row: row.get("line", 0))
+    with path.open("w", encoding="utf-8") as f:
+        for row in rows:
+            f.write(json.dumps(row, ensure_ascii=False) + "\n")
+
+
 def summarize_rows(rows):
     method_names = []
     metric_names = []
@@ -181,7 +200,25 @@ def main():
     metrics = oneq.select_metrics(args.metrics)
     output_jsonl = Path(args.output_jsonl)
     output_md = Path(args.output_md)
-    if not args.append:
+    if args.resume and args.append:
+        raise ValueError("--resume and --append cannot be used together")
+    if args.resume:
+        existing_rows = load_jsonl(output_jsonl)
+        rows_for_summary = [
+            row for row in existing_rows
+            if row.get("status") in {"ok", "skipped"}
+        ]
+        completed_lines = {row.get("line") for row in rows_for_summary}
+        write_jsonl(output_jsonl, rows_for_summary)
+        print(
+            f"Resuming with {len(completed_lines)} completed/skipped lines; "
+            f"discarded {len(existing_rows) - len(rows_for_summary)} error rows",
+            flush=True,
+        )
+    else:
+        rows_for_summary = []
+        completed_lines = set()
+    if not args.append and not args.resume:
         output_jsonl.write_text("", encoding="utf-8")
     vendor_by_query = load_vendor_targets(args.vendor_results) if args.require_vendor_target else {}
     optimization_llm_log = []
@@ -194,9 +231,11 @@ def main():
         optimization_llm_log,
     )
 
-    rows_for_summary = []
     started_at = time.time()
     for line_no, record in iter_records(args.dataset, args.start_line, args.limit):
+        if line_no in completed_lines:
+            print(f"Skipping completed line {line_no}", flush=True)
+            continue
         reasons, query, sources, idx, original_idx, vendor_indices = validate_record(
             record,
             args.source_field,
@@ -324,6 +363,8 @@ def main():
             print(f"ERROR line {line_no}: {exc!r}", flush=True)
             if args.fail_fast:
                 raise
+    rows_for_summary.sort(key=lambda row: row.get("line", 0))
+    write_jsonl(output_jsonl, rows_for_summary)
     output_md.write_text(summarize_rows(rows_for_summary), encoding="utf-8")
     print(f"Wrote {output_jsonl}", flush=True)
     print(f"Wrote {output_md}", flush=True)

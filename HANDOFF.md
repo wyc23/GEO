@@ -63,3 +63,18 @@ B2C 的 source 级 vendor-information 分类已经完成：
    修改本轮已提交的原始结果。
 3. 使用 `cleaned_text_only_results_b2c.jsonl` 作为 `--vendor-results`，对 122 条 eligible
    B2C query 运行与 B2B 相同的 improve 和 simple evaluation。
+
+## B2C GEO Evaluation Snapshot
+
+当前已提交的 B2C GEO 结果是一个明确标记的阶段性快照：
+
+- 结果：`vllm_qwen36_b2c_vendor_simple_diagnostics.jsonl`。
+- 汇总：`vllm_qwen36_b2c_vendor_simple_summary.md`。
+- 已完成 121 条有效 query，另有 38 条按筛选规则跳过。
+- Dataset line 2 尚未包含在快照中；HT vLLM 当时健康检查正常，但推理接口持续排队并在
+  600 秒后超时。
+- 当前 JSONL 共 159 条，全部为 `ok` 或 `skipped`，不含 error/空 answer。
+- 现阶段综合最好的是 `stats_optimization_gpt`，其次是 `fluent_gpt`。
+
+恢复时运行 `./supervise_vllm_b2c_vendor_simple.sh`。它会保留这 159 条，只补跑 line 2；
+成功后应重新验证 160 个唯一 line、122 个 `ok`、38 个 `skipped`，再提交最终版本。
